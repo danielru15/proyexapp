@@ -1,0 +1,126 @@
+<footer>
+    <div class="content">
+        <div class="flex">
+            <a href="/" class="logo-content">
+                <img src="../../public/logoblanco.webp" class="logo" alt="proyexapp logo" />
+            </a>
+            <ul>
+                <li>
+                    <a href="#" >Servicios</a>
+                </li>
+                <li>
+                    <a href="#" >Trabajos</a>
+                </li>
+                <li>
+                    <a href="#" >Nosotros</a>
+                </li>
+                <li>
+                    <a href="#" >Contactanos</a>
+                </li>
+            </ul>
+        </div>
+        <hr/>
+        <span>© 2024 <a href="/">PROYEXAPP</a>. All Rights Reserved.</span>
+    </div>
+</footer>
+
+
+
+<style>
+    footer {
+        margin-top: 2em;
+        background-color:#0e2d5f;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); 
+    }
+    .content {
+        width: 100%; 
+        padding: 1rem;
+    }
+    .logo-content {
+        display: flex; 
+        margin-top: 1rem;
+        margin-bottom: 1rem; 
+        margin-left: 0.75rem; 
+        margin-left: 0.875rem; 
+        align-items: center; 
+    }
+    .logo {
+        height: 2rem;
+    }
+    .flex ul {
+        display: flex; 
+        margin-bottom: 1.5rem; 
+        flex-wrap: wrap; 
+        align-items: center; 
+    }
+    .flex ul a {
+        font-size: 1rem;
+        line-height: 1.25rem; 
+        font-weight: 500;
+        margin-inline-end: 1rem;
+        color: whitesmoke
+    }
+    .flex ul a:hover {
+        text-decoration: underline; 
+    }
+
+    .content hr {
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem; 
+        border-color: #2e5197; 
+    }
+    .content span  {
+        display: block; 
+        font-size: 1rem;
+        line-height: 1.25rem; 
+        color: #ffffff; 
+
+    }
+    .content span a {
+        font-size: 1rem;
+        color: white;
+    }
+    .content span a:hover {
+        text-decoration;:underline
+    }
+
+    @media (min-width: 768px) { 
+        .content {
+            padding: 2rem 2.5rem;
+        }
+        .flex ul a {
+            margin-inline-end: 1.5rem;
+        }
+    }
+    @media (min-width: 640px) { 
+        .content {
+            padding: 1rem 2rem;
+        }
+        .flex {
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        .logo-content {
+            margin-bottom: 0; 
+        }
+        .flex ul {
+            margin-bottom: 0; 
+        }
+        .content span {
+            text-align: center; 
+        }
+    }
+    @media (min-width: 1024px) { 
+        .content {
+            padding: 30px 80px
+        }
+        .content hr {
+            margin-top: 2rem;
+            margin-bottom: 2rem; 
+        }
+
+    }
+
+    
+</style>

@@ -1,0 +1,158 @@
+---
+interface preguntaYrespuesta {
+    pregunta:string,
+    respuesta:string
+}
+
+interface Props {
+	title:string,
+    preguntaYrespuesta:Array<preguntaYrespuesta>,
+}
+
+const { title,preguntaYrespuesta } = Astro.props;
+---
+<section >
+   {title && <h1>{title}</h1> }
+    <article>
+        {
+            preguntaYrespuesta?.map(({pregunta,respuesta}) => (
+            <button class="pregunta">{pregunta}</button>
+            <div class="respuesta">
+                 <p>{respuesta}</p>
+            </div>
+            )) 
+            
+        }
+    </article>
+</section>
+
+<script>
+ const preguntas: HTMLCollectionOf<Element> = document.getElementsByClassName("pregunta");
+
+for (let i = 0; i < preguntas.length; i++) {
+  preguntas[i].addEventListener("click", alternar);
+}
+
+function alternar(this: HTMLElement): void {
+  /*
+  - Alternar entre agregar y eliminar la clase "activa",
+  - para resaltar el botón que controla la pregunta
+  */
+  this.classList.toggle("activo");
+
+  // Alternar entre ocultar y mostrar la pregunta activa
+  let respuesta = this.nextElementSibling as HTMLElement;
+  if (respuesta.style.maxHeight) {
+    respuesta.style.maxHeight = '';
+  } else {
+    respuesta.style.maxHeight = respuesta.scrollHeight + "px";
+  }
+}
+</script>
+<style>
+    /* cFAQ */
+    section { 
+    margin-top: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3rem 2rem;
+}
+section h1 {
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-align: center;
+    color:var(--color2);
+}
+article {
+    margin-top: 3rem;
+}
+
+.pregunta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color:var(--color2);
+    cursor: pointer;
+    padding: 20px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 1.3em;
+    transition: 0.4s;
+    border-bottom: 2px solid var(--color2);
+}
+.activo, .pregunta:hover {;
+    color: #0e2d5f 
+}
+.pregunta:after {
+    content: '\02795'; /* Restaurante para signo (+) */
+    font-size: 0.80em;
+    color: var(--color2);
+  }
+  .activo:after {
+    content: "\2796"; /* Restaurante para signo (-) */
+  }
+  .respuesta {
+    width: 100%;
+    padding: 0 20px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px; ;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    
+}
+.respuesta p {
+    font-size: 1.2em;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+}
+@media (max-width: 320px) { 
+    section h1 {
+        font-size: 1.5rem;
+    }
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+	section h1 {
+        font-size: 1.8rem;
+    }
+    section p {
+        font-size: 1.3rem;
+    }
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+	section h1 {
+        font-size: 1.8rem;
+    }
+    section p {
+        font-size: 1.3rem;
+    }
+    section {
+        padding: 3rem 1rem;
+    }
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    section {
+        min-height: 45vh;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+	section {
+        margin-top: 3rem;
+        padding: 3rem 4rem;
+        min-height: 75vh;
+    }
+	section h1 {
+        font-size: 2.2rem;
+    }
+    section p {
+        font-size: 1.4rem;
+    }
+}
+</style>
