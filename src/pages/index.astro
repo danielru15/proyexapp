@@ -63,7 +63,25 @@ import CTA from '../components/CTA.astro';
 		/>
 	
 	</main>
-	<CardBackground title='¿ Cómo Trabajamos ?'/>
+	<CardBackground title='¿ Cómo Trabajamos ?' fondo='fondo' informacion={[
+		{
+		imagen:[{url:"/paso1.webp",descripcion:"paso1"}],
+		subtitulo:"Paso 1",
+		texto:"Nos reunimos con el cliente y escuchamos sus requerimientos y necesidades, le asesoramos y decidimos juntos el tipo de pagina a desarrollar, definimos el valor del trabajo.",
+		clase:"flex"
+		},
+		{
+		imagen:[{url:"/paso2.webp",descripcion:"paso2"}],
+		subtitulo:"Paso 2",
+		texto:"Procedemos a diseñar el WIREFRAME y MOCKUP de cómo se vera el sito web, balándonos en el UI/UX para garantizar paginas modernas, llamativas y que cumplan con los requerimientos del cliente.",
+		clase:"flex flex-reverse"
+    	},
+		{
+		imagen:[{url:"/paso3.webp",descripcion:"paso3"}],
+		subtitulo:"Paso 3",
+		texto:"Después que el diseño sea aprobado por el cliente se pasa a la etapa de desarrollo donde nos encargaremos de hacer tu pagina responsive y que este en internet en los tiempos pactados.",
+		clase:"flex"
+		}]}/>
 	<Faq title='Explora las preguntas frecuentes' preguntaYrespuesta={[{
 		pregunta:'¿ Que es diseño responsive ?',
 		respuesta:'El diseño responsive es que tu sitio web sea compatible y se vea bien en todos los dispositivos móviles.'
@@ -80,7 +98,7 @@ import CTA from '../components/CTA.astro';
 		pregunta:'¿ Cómo se empieza un trabajo y que garantías tiene ?',
 		respuesta:''
 	}]}/>
-		<CTA/>
+	<CTA/>
 	<Footer/>
 
 </Layout>
