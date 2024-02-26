@@ -10,18 +10,23 @@ import Waves from '../components/Waves.astro';
   <Navbar/>
   <Waves/>
   <main>
-	<h1>Nosotros</h1>
-	<p>En <span>PROYEXAPP</span>, somos un equipo apasionado de diseñadores, desarrolladores y estrategas digitales dedicados a hacer que tu presencia en línea destaque en un mundo digital en constante evolución.</p>
-	<p>Con años de experiencia en la industria y un enfoque centrado en el cliente, estamos aquí para llevar tus ideas al siguiente nivel y ayudarte a alcanzar tus objetivos en línea.</p>
-
-	<h2>Nuestra Misión</h2>
-	<p>ayudarte a construir una presencia en línea que haga que tu marca brille. Creemos en el poder de la creatividad, la innovación y la colaboración para crear experiencias web únicas y memorables que cautiven a tu audiencia y generen resultados tangibles para tu negocio.</p>
-
+	<section>
+		<h1>Nosotros</h1>
+		<p>En <span>PROYEXAPP</span>, somos un equipo apasionado de diseñadores, desarrolladores y estrategas digitales dedicados a hacer que tu presencia en línea destaque en un mundo digital en constante evolución.</p>
+		<p>Con años de experiencia en la industria y un enfoque centrado en el cliente, estamos aquí para llevar tus ideas al siguiente nivel y ayudarte a alcanzar tus objetivos en línea.</p>
+	</section>
+	<section class="text">
+		<h2>Nuestra Misión</h2>
+		<p>ayudarte a construir una presencia en línea que haga que tu marca brille. Creemos en el poder de la creatividad, la innovación y la colaboración para crear experiencias web únicas y memorables que cautiven a tu audiencia y generen resultados tangibles para tu negocio.</p>
+	</section>
+	<section class="text">
 	<h2>Nuestro Enfoque</h2>
 	<p>enfoque centrado en el cliente y nuestra dedicación a la calidad y la innovación. Trabajamos estrechamente contigo en cada paso del proceso, desde la consultoría inicial hasta el lanzamiento y más allá, para garantizar que tus necesidades y objetivos estén siempre en el centro de todo lo que hacemos.</p>
-
-	<h2>¡Únete a Nosotros en el Viaje Digital!</h2>
-	<p>Ya sea que estés lanzando un nuevo negocio o buscando revitalizar tu presencia en línea existente, en [Nombre del Sitio] estamos aquí para ayudarte a alcanzar tus metas digitales. ¡Únete a nosotros en el emocionante viaje digital y descubre lo que podemos lograr juntos!</p>
+	</section>
+	<section class="text">
+		<h2>¡Únete a Nosotros en el Viaje Digital!</h2>
+		<p>Ya sea que estés lanzando un nuevo negocio o buscando revitalizar tu presencia en línea existente, en PROYEXAPP estamos aquí para ayudarte a alcanzar tus metas digitales. ¡Únete a nosotros en el emocionante viaje digital y descubre lo que podemos lograr juntos!</p>
+	</section>
   </main>
 
     <CTA/>
@@ -36,7 +41,41 @@ import Waves from '../components/Waves.astro';
 		margin: 0 auto;
 		text-align: center;
 	}
-	
+	section { 
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem 2rem;
+}
+section h1 {
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-align: center;
+    color:var(--color2);
+}
+section p {
+    font-size: 1.2rem;
+    margin: 1.1em 0;
+}
+.text h2 {
+	text-align: left;
+	font-size: 1.6rem;
+	color:var(--color2);
+}
+.text p {
+	text-align:left;
+	text-wrap: wrap;
+}	
+
+
+@media (max-width: 320px) { 
+    section h1 {
+        font-size: 1.5rem;
+    }
+	section h2 {
+		font-size: 1.4rem;
+	}
+}
 	/* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
 main {
@@ -54,6 +93,15 @@ main {
 		width: 100%;
 		margin: 0 auto;
 	}
+	section h1 {
+        font-size: 1.8rem;
+    }
+	section h2 {
+		font-size: 1.7rem;
+	}
+    section p {
+        font-size: 1.3rem;
+    }
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -73,6 +121,14 @@ main {
 		width: 100%;
 		margin: 0 auto;
 	}
-	
+	section h1 {
+        font-size: 2.2rem;
+    }
+	section h2 {
+		font-size: 1.9rem;
+	}
+    section p {
+        font-size: 1.4rem;
+    }
 }
 </style>
