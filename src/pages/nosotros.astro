@@ -2,7 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro'
 import Footer from '../components/Footer.astro';
-import CardBackground from '../components/CardBackground.astro';
 import CTA from '../components/CTA.astro';
 import Waves from '../components/Waves.astro';
 ---
@@ -25,7 +24,7 @@ import Waves from '../components/Waves.astro';
 	</section>
 	<section class="text">
 		<h2>¡Únete a Nosotros en el Viaje Digital!</h2>
-		<p>Ya sea que estés lanzando un nuevo negocio o buscando revitalizar tu presencia en línea existente, en PROYEXAPP estamos aquí para ayudarte a alcanzar tus metas digitales. ¡Únete a nosotros en el emocionante viaje digital y descubre lo que podemos lograr juntos!</p>
+		<p>Ya sea que estés lanzando un nuevo negocio o buscando revitalizar tu presencia en línea existente, en <span>PROYEXAPP</span> estamos aquí para ayudarte a alcanzar tus metas digitales. ¡Únete a nosotros en el emocionante viaje digital y descubre lo que podemos lograr juntos!</p>
 	</section>
   </main>
 
@@ -56,6 +55,10 @@ section h1 {
 section p {
     font-size: 1.2rem;
     margin: 1.1em 0;
+}
+span {
+	font-weight:bolder;
+	color: var(--color2);
 }
 .text h2 {
 	text-align: left;
