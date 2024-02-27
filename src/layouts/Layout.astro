@@ -1,24 +1,49 @@
 ---
+import { SEO } from "astro-seo";
 interface Props {
 	title: string;
+  description:string,
+  keywords:string
 }
 
-const { title } = Astro.props;
+const { title,description,keywords } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="Es">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+      <SEO
+      title={title ? title : "proyexapp"}
+      canonical={"www.proyexapp.com"}
+      description={description}
+      charset="UTF-8"
+      openGraph.basic.title={"proyexapp"}
+      openGraph.basic.url={"www.proyexapp.com"}
+      openGraph.optional.description={description}
+      openGraph.optional.locale={"es-CO"}
+      extend={{link: [{ rel: "icon", href: "/favicon.svg" }],meta: [
+      {
+        name: "author",
+        content:'Proyexapp',
+      },
+      {
+        name: "keywords",
+        content:keywords,
+      },
+      {
+        name:"robots",
+        content:"index, follow"
+      }
+    ]}}
+    />
+    <meta name="googlebot" content="index,follow">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#0e2d5f" />
     <link rel="sitemap" href="/sitemap-index.xml" />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Protest+Riot&family=REM:ital,wght@0,200;1,200&display=swap" rel="stylesheet">
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
 	</head>
 	<body>
 		<slot />
