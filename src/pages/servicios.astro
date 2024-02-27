@@ -2,13 +2,45 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro'
 import Footer from '../components/Footer.astro';
-import CardBackground from '../components/CardBackground.astro';
 import CTA from '../components/CTA.astro';
 import Waves from '../components/Waves.astro';
+import CardBackground from '../components/CardBackground.astro';
 ---
 <Layout title='Servicios - Proyexapp'>
   <Navbar/>
   <Waves/>
+  <main>
+	<section>
+		<h1>Nuestros Servicios</h1>
+		<p>En <span>PROYEXAPP</span>, ofrecemos una amplia gama de servicios diseñados para llevar tu presencia en línea al siguiente nivel y ayudarte a destacarte en un mercado cada vez más competitivo. </p>
+
+	</section>
+	<section class="text">
+		<h2>Diseño Web Personalizado</h2>
+		<p>Trabajmos contigo para crear un sitio web único y atractivo que refleje la esencia de tu marca y cautive a tu audiencia desde el primer vistazo. Desde el diseño de la interfaz de usuario hasta la selección de colores y tipografías, nos aseguramos de que tu sitio web sea una obra maestra visual que deje una impresión duradera en tus visitantes.</p>
+	</section>
+	<section class="text">
+	<h2>Desarrollo Web Avanzado</h2>
+	<p>a sea que necesites un sitio web estático elegante, una plataforma de comercio electrónico dinámica o una aplicación web personalizada, Utilizamos las últimas tecnologías y mejores prácticas de desarrollo para garantizar que tu sitio web sea rápido, seguro y altamente funcional en todo momento.</p>
+	</section>
+	<section class="text">
+		<h2>Optimización para Dispositivos Móviles</h2>
+		<p>Con un número cada vez mayor de usuarios que acceden a Internet desde dispositivos móviles, garantizamos que tu sitio web se vea y funcione perfectamente en cualquier pantalla, desde teléfonos inteligentes hasta tabletas. Utilizamos técnicas de diseño receptivo y optimización móvil para garantizar una experiencia de usuario impecable en todos los dispositivos.</p>
+	</section>
+	<section class="text">
+		<h2>Mantenimiento y Soporte</h2>
+		<p>Nuestro compromiso contigo no termina una vez que se lanza tu sitio web. Ofrecemos servicios de mantenimiento y soporte continuo para garantizar que tu sitio web siga funcionando sin problemas y esté siempre actualizado con las últimas tecnologías y tendencias del mercado.</p>
+	</section>
+	<section class="text">
+		<h2>Nuestros servicios incluyen</h2>
+		<ul>
+			<li>Consultoría y Asesoramiento</li>
+			<li>Diseño moderno y a la medida.</li>
+			<li>Hosting y dominio gratis por 1 año.</li>
+			<li>100% adaptable a dispositivos moviles.</li>
+		</ul>
+	</section>
+  </main>
   <CardBackground title='¿ Cómo Trabajamos ?' fondo='fondo' informacion={[
 	{
 	imagen:[{url:"/paso1.webp",descripcion:"paso1"}],
@@ -28,7 +60,6 @@ import Waves from '../components/Waves.astro';
 	texto:"Después que el diseño sea aprobado por el cliente se pasa a la etapa de desarrollo donde nos encargaremos de hacer tu pagina responsive y que este en internet en los tiempos pactados.",
 	clase:"flex"
 	}]}/>
-
     <CTA/>
   <Footer/>
 </Layout>
@@ -41,10 +72,56 @@ import Waves from '../components/Waves.astro';
 		margin: 0 auto;
 		text-align: center;
 	}
-	
+	section { 
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem 2rem;
+}
+section h1 {
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-align: center;
+    color:var(--color2);
+}
+section p {
+    font-size: 1.2rem;
+    margin: 1.1em 0;
+}
+span {
+	font-weight:bolder;
+	color: var(--color2);
+}
+.text h2 {
+	text-align: left;
+	font-size: 1.6rem;
+	color:var(--color2);
+}
+.text p {
+	text-align:left;
+	text-wrap: wrap;
+}	
+.text ul li{
+	text-align: left;
+	margin: 1.1em;
+	font-size: 1.2rem;
+	padding-inline-start: 1ch;
+}
+li::marker {
+  content: '✅';
+  font-size: 1.2em;
+}
+@media (max-width: 320px) { 
+    section h1 {
+        font-size: 1.5rem;
+    }
+	section h2 {
+		font-size: 1.4rem;
+	}
+}
 	/* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
-main {background-color: white;
+main {
 		padding:40px 30px;
 		width: 100%;
 		margin: 0 auto;
@@ -59,6 +136,21 @@ main {background-color: white;
 		width: 100%;
 		margin: 0 auto;
 	}
+	section h1 {
+        font-size: 1.8rem;
+    }
+	section h2 {
+		font-size: 1.7rem;
+	}
+    section p {
+        font-size: 1.3rem;
+    }
+	.text ul li{ font-size: 1.3rem;
+	 }
+	 li::marker {
+  content: '✅';
+  font-size: 1.3em;
+}
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -78,6 +170,20 @@ main {background-color: white;
 		width: 100%;
 		margin: 0 auto;
 	}
-	
+	section h1 {
+        font-size: 2.2rem;
+    }
+	section h2 {
+		font-size: 1.9rem;
+	}
+    section p {
+        font-size: 1.4rem;
+  	 }
+	 .text ul li{ font-size: 1.4rem;
+	 }
+	 li::marker {
+  content: '✅';
+  font-size: 1.4em;
+}
 }
 </style>
