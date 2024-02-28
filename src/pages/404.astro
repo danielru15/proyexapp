@@ -2,10 +2,12 @@
 import Layout from '../layouts/Layout.astro';
 
 ---
-<Layout title='Proyexapp' description='pagina no encontrada' keywords=''>
+<Layout title='Proyexapp' description='pagina no encontrada'>
 
   <main>
-    404
+	<img src="/logoCompleto.png" alt="logo azul vertical">
+    <h1>¡Oops! Página no encontrada."</h1>
+	<a href="/">Volvamos al inicio.</a>
   </main>
 
 
@@ -19,11 +21,23 @@ import Layout from '../layouts/Layout.astro';
 		margin: 0 auto;
 		text-align: center;
         min-height: 100vh;
+		background-color: white
 	}
-	
+	main img {
+		width: 90vw;
+	}
+	h1 {
+		color: var(--color2);
+	}
+	a {
+		display: block;
+		margin: 1rem 0;
+		font-size: 1.4rem;
+		color: var(--color2);
+	}
 	/* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
-main {background-color: whitesmoke;
+main {;
 		padding:40px 30px;
 		width: 100%;
 		margin: 0 auto;
@@ -38,6 +52,9 @@ main {background-color: whitesmoke;
 		width: 100%;
 		margin: 0 auto;
 	}
+	main img {
+		width: 50vw;
+	}
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -47,6 +64,9 @@ main {background-color: whitesmoke;
 		width: 100%;
 		margin: 0 auto;
 		
+	}
+	main img {
+		width: 30vw;
 	}
 }
 
