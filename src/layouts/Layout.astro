@@ -1,5 +1,4 @@
 ---
-import { SEO } from "astro-seo";
 interface Props {
 	title: string;
   description:string,
@@ -10,36 +9,26 @@ const { title,description,keywords } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="Es">
+<html lang="es">
 	<head>
-      <SEO
-      canonical={"https:www.proyexapp.com"}
-      description={description}
-      charset="UTF-8"
-      openGraph.basic.title={"proyexapp"}
-      openGraph.basic.url={"www.proyexapp.com"}
-      openGraph.optional.description={description}
-      openGraph.optional.locale={"es-CO"}
-      extend={{link: [{ rel: "icon", href: "/favicon.svg" }],meta: [
-      {
-        name: "author",
-        content:'Proyexapp',
-      },
-      {
-        name: "keywords",
-        content:keywords,
-      },
-      {
-        name:"robots",
-        content:"index, follow"
-      }
-    ]}}
-    />
-    <title>proyexapp</title>
-    <meta name="googlebot" content="index,follow">
+    <title>{title}</title>
+    <meta name="description" content={description} >
+    <meta name="keywords" content={keywords}>
+    <meta charset="utf-8">
+    <meta property="og:url" content="https://www.proyexapp.com">
+    <meta property="og:title" content="proyexapp">
+    <meta property="og:description" content={description}>
+    <meta property="og:image" content="URL de la Imagen">
+    <meta name="googlebot" content="index,follow"/>
+    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="index, follow"> 
+    <meta name="author" content="proyexapp"> 
+    <meta property="locale" content="es_CO">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0e2d5f" />
+    <link rel="canonical" href="https://www.proyexapp.com/"> 
+    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
     <link rel="sitemap" href="/sitemap-index.xml" />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
