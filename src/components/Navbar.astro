@@ -1,5 +1,10 @@
 ---
-
+import menu from '../config/menu.json';
+interface NavigationLink {
+  name: string;
+  url: string;
+}
+const { main }: { main: NavigationLink[] } = menu;
 ---
 <header>
     <nav>
@@ -7,9 +12,11 @@
             <span class='logo'><a href='/'><img src="/logoblanco.webp" width="180" alt="logo horizontal blanco proyexapp" title="logo horizontal blanco proyexapp"/></a></span>
             <input type='checkbox' id='check' />
             <ul class="menu">
-                <li><a href="/servicios">Servicios</a></li>
-                <li><a href="/nosotros">Nosotros</a></li>
-                <li><a href="/contactanos">Contactanos</a></li>
+                {
+                    main?.map((menu) => (
+                      <li><a href={menu?.url}>{menu?.name}</a></li>
+                    ))
+                }
                 <label for="check" class="close-menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="fill:#fff;transform: ;msFilter:;"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg></></label>
             </ul>
             <label for="check" class="open-menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="fill:#fff;transform: ;msFilter:;"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path></svg></label>

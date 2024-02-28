@@ -1,3 +1,12 @@
+---
+import menu from '../config/menu.json';
+interface NavigationLink {
+  name: string;
+  url: string;
+}
+const { main }: { main: NavigationLink[] } = menu
+---
+
 <footer>
     <div class="content">
         <div class="flex">
@@ -5,15 +14,11 @@
                 <img src="/logoblanco.webp" class="logo" alt="logo horizontal blanco proyexapp" title="logo horizontal blanco proyexapp" />
             </a>
             <ul>
-                <li>
-                    <a href="/servicios" >Servicios</a>
-                </li>
-                <li>
-                    <a href="/nosotros" >Nosotros</a>
-                </li>
-                <li>
-                    <a href="/contactanos" >Contactanos</a>
-                </li>
+                {
+                    main?.map((menu) => (
+                      <li><a href={menu?.url}>{menu?.name}</a></li>
+                    ))
+                }
             </ul>
         </div>
         <hr/>
