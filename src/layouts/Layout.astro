@@ -55,14 +55,6 @@ const { title,description } = Astro.props;
 html {
   background-color: #f5f5f5;
   scroll-behavior: smooth;
-	font-family:
-	Menlo,
-      Monaco,
-      Lucida Console,
-      "Courier New",
-      Courier,
-      monospace,
-	  sans-serif
     letter-spacing: 0.025rem;
   }
 
@@ -100,16 +92,26 @@ p {
     line-height: 1.7;
     text-wrap: pretty;
   }
+  strong {
+    font-family: "REM", sans-serif;
+  }
+  span {
+    font-family: "REM", sans-serif;
+  }
   a {
     text-decoration: none;
+    font-family: "REM", sans-serif;
   }
 
   ul {
+    font-family: "REM", sans-serif;
     list-style: none;
     margin: 0;
     padding: 0;
   }
-
+li {
+  font-family: "REM", sans-serif;
+}
   *,
   *::before,
   *::after {
