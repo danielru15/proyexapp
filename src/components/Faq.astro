@@ -55,7 +55,7 @@ function alternar(this: HTMLElement): void {
     margin-top: 3rem;
     margin-left: auto;
     margin-right: auto;
-    padding: 3rem 2rem;
+    padding: 3rem 1rem;
 }
 section h1 {
     text-transform: uppercase;
@@ -114,6 +114,11 @@ article {
         font-size: 1.5rem;
     }
 }
+@media (min-width: 640px) { 
+    section {
+        padding: 3rem 1rem;
+    }
+}
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
 	section h1 {
@@ -129,6 +134,7 @@ article {
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
     section {
+        padding: 3rem 3rem;
         min-height: 45vh;
     }
 }
