@@ -117,12 +117,13 @@ li::marker {
 
 /* Para dispositivos iPhone */
 @media only screen 
-  and (min-device-width: 375px) 
+  and (min-device-width: 320px) 
   and (max-device-width: 812px) 
   and (-webkit-min-device-pixel-ratio: 2) { 
-  li::marker {
-    font-size: 1em; /* Tamaño de fuente ajustado para iPhone */
-  }
+	li::before {
+    content: "✅"; /* Emoji deseado */
+    margin-right: 5px; /* Espacio entre el emoji y el texto del elemento */
+}
 }
 
 @media (max-width: 320px) { 
