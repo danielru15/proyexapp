@@ -1,7 +1,7 @@
 ---
 import IconMessage from "@/icons/Icon_message.astro";
 import { MailerSend, EmailParams, Sender, Recipient } from "mailersend";
-
+const mailerSend = new MailerSend({ apiKey:'mlsn.fb3afe0aa7c9aad0d2ccc8dca263a1a0bf264ecd2bdb72752ce3b99ed1ef6d9a'});
 if (Astro.request.method === 'POST') {
   try{
     // Getting posted data from our contact form
@@ -11,7 +11,6 @@ if (Astro.request.method === 'POST') {
     const email = data.get('tel');
     const tel = data.get('message')
     const message = data.get('message');
-    const mailerSend = new MailerSend({ apiKey:'mlsn.fb3afe0aa7c9aad0d2ccc8dca263a1a0bf264ecd2bdb72752ce3b99ed1ef6d9a'});
     const sentFrom = new Sender("MS_Mz42TJ@trial-vywj2lp7o7kl7oqz.mlsender.net", `${name}`)
     const recipients = [new Recipient("proyexapp@gmail.com", `${name}`)];
     const Cc = [new Recipient(`${email}`, `${name}`)]
@@ -28,7 +27,7 @@ if (Astro.request.method === 'POST') {
         await mailerSend.email.send(emailParams)
     }
     } catch (error) {
-        console.log(error)
+        alert(error)
     }
     }
 ---
