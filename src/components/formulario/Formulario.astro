@@ -1,9 +1,16 @@
 ---
 import IconMessage from "@/icons/Icon_message.astro";
-import sendGrid from '@sendgrid/mail';
-sendGrid.setApiKey( import.meta.env.SEND_API_KEY );
+import { MailerSend, EmailParams, Sender, Recipient } from "mailersend";
+
 
 if (Astro.request.method === 'POST') {
+    const mailerSend = new MailerSend({
+  apiKey:'mlsn.2278a90f2998cb2f1aaddd9b6c117e721cbbce5d524351de22f3d3c2c5312512',
+});
+    const sentFrom = new Sender("prueba-vywj2lp7o7kl7oqz.mlsender.net", "Your name")
+    const recipients = [
+  new Recipient("proyexapp@gmail.com", "Your Client")
+];
   try{
     // Getting posted data from our contact form
     const data = await Astro.request.formData();
@@ -13,22 +20,16 @@ if (Astro.request.method === 'POST') {
 
     // TODO: Do not forget to do validation and error handling over received data from your contact form.
 
-    // Sending email
-    const msg  = {
-      to: 'proyexapp@gmail.com', // Change to your recipient
-      from: 'proyexapp@gmail.com', // Change to your verified sender
-      subject: `Contact form submission`,
-      text: `${message}`,
-    }
-    await sendGrid.send(msg).then(() => {
-      console.log('Email sent')
-    }).catch((error) => {
-      console.error(error)
-    });
-
-  } catch (error) {
-    console.error(error);
-  }
+    const emailParams = new EmailParams()
+  .setFrom(sentFrom)
+  .setTo(recipients)
+  .setSubject("This is a Subject")
+  .setHtml("<strong>This is the HTML content</strong>")
+  .setText("This is the text content");
+  await mailerSend.email.send(emailParams)
+} catch (error) {
+    console.log(error)
+}
 }
 ---
 <div class="container">
