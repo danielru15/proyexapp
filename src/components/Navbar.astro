@@ -1,10 +1,5 @@
 ---
-import menu from '../config/menu.json';
-interface NavigationLink {
-  name: string;
-  url: string;
-}
-const { main }: { main: NavigationLink[] } = menu;
+const url_path = Astro.url.pathname.split("/")[1]
 ---
 <header>
     <nav>
@@ -12,11 +7,9 @@ const { main }: { main: NavigationLink[] } = menu;
             <span class='logo'><a href='/'><img src="/logoblanco.webp" width="180" alt="logo horizontal blanco proyexapp" title="logo horizontal blanco proyexapp"/></a></span>
             <input type='checkbox' id='check' />
             <ul class="menu">
-                {
-                    main?.map((menu) => (
-                      <li><a href={menu?.url}>{menu?.name}</a></li>
-                    ))
-                }
+                    <li><a class={url_path === 'servicios' ? 'active' : null} href="/servicios">Servicios</a></li>
+                    <li><a class={url_path === 'nosotros' ? 'active' : null} href="/nosotros">Nosotros</a></li>
+                    <li><a class={url_path === 'contactanos' ? 'active' : null} href="/contactanos">Contactanos</a></li>
                 <label for="check" class="close-menu">
                     <div>
                         <div class="bar1"></div>
@@ -49,6 +42,7 @@ const { main }: { main: NavigationLink[] } = menu;
 </script>
     <style>
    
+
 nav {
     width: 100%;
     background-color: transparent;
@@ -58,11 +52,17 @@ nav {
     z-index: 20;
    
 }
+.active {
+    background-color: var(--color_secundario);
+    color: black !important;
+    padding:0.2rem 1rem;
+    border-radius: var(--border-radius);
+   }
 .scrolled {
     position: fixed;
     top: 0;
     z-index: 20;
-  background-color: var(--color2);
+  background-color: var(--color_primario);
 }
 .nav-bar {
     display: flex;
@@ -75,12 +75,13 @@ nav {
     width: 180px;
     padding-left: 0;
 }
+
 .menu {display: flex;}
 .menu li {padding-left: 30px;}
 .menu li a {
     display: inline-block;
     text-decoration: none;
-    color: var(--color1);
+    color: var(--color_cuarto);
     text-align: center;
     transition: 0.15s ease-in-out;
     position: relative;
@@ -93,13 +94,25 @@ nav {
     left: 0;
     width: 0;
     height: 1px;
-    background-color: var(--color1);
+    background-color: white;
     transition: 0.15s ease-in-out;
 }
+.menu li a::after  {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: white;
+    transition: 0.15s ease-in-out;
+}
+/* Selecciona cualquier <a> que esté siendo activado */
+
 .menu li a:hover:after {width: 100%;}
 .open-menu , .close-menu {
     position: absolute;
-    color: var(--color1);
+    color: white;
     cursor: pointer;
     display: none;
 }

@@ -5,26 +5,22 @@ interface preguntaYrespuesta {
 }
 
 interface Props {
-	title:string,
     preguntaYrespuesta:Array<preguntaYrespuesta>,
 }
 
-const { title,preguntaYrespuesta } = Astro.props;
+const { preguntaYrespuesta } = Astro.props;
 ---
-<section >
-   {title && <h1>{title}</h1> }
-    <article>
+  <article>
         {
             preguntaYrespuesta?.map(({pregunta,respuesta}) => (
-            <button class="pregunta">{pregunta}</button>
+            <div class="pregunta">{pregunta}</div>
             <div class="respuesta">
                  <p>{respuesta}</p>
             </div>
             )) 
             
         }
-    </article>
-</section>
+  </article>
 
 <script>
  const preguntas: HTMLCollectionOf<Element> = document.getElementsByClassName("pregunta");
@@ -44,113 +40,81 @@ function alternar(this: HTMLElement): void {
   let respuesta = this.nextElementSibling as HTMLElement;
   if (respuesta.style.maxHeight) {
     respuesta.style.maxHeight = '';
+    respuesta.classList.remove("active-respuesta")
   } else {
     respuesta.style.maxHeight = respuesta.scrollHeight + "px";
+    respuesta.classList.add("active-respuesta")
   }
 }
 </script>
 <style>
-    /* cFAQ */
-    section { 
-    margin-top: 3rem;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 3rem 1rem;
-}
-section h1 {
-    text-transform: uppercase;
-    font-size: 1.7rem;
-    text-align: center;
-    color:var(--color2);
-}
-article {
-    margin-top: 3rem;
-}
 
+  article {
+    margin: 3rem 0;
+  }
 .pregunta {
-    font-family: "REM", sans-serif;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color:var(--color2);
-    cursor: pointer;
+    color:var(--color_primario);
+    font-size: 1.3rem;
     padding: 20px;
     width: 100%;
+    border-radius:var(--border-radius);
+    background-color: white;
     border: none;
     text-align: left;
     outline: none;
-    font-size: 1.3em;
     transition: 0.4s;
-    border-bottom: 2px solid var(--color2);
+    margin: .3rem 0;
+    box-shadow:var(--sombra_caja_2);
+    cursor: pointer;
 }
-.activo, .pregunta:hover {;
-    color: #0e2d5f 
+.activo, .pregunta:hover {
+  background-color:var(--color_primario) ;
+  color: var(--color_cuarto);
+}
+
+.pregunta:hover:after {
+    content: '+';
+    font-size: 2.3rem;
+    color: var(--color_cuarto);
 }
 .pregunta:after {
-    content: '\02795'; /* Restaurante para signo (+) */
-    font-size: 0.80em;
-    color: var(--color2);
+    content: '+'; /* para signo (+) */
+    font-size: 2.3rem;
+    color: var(--color_primario);
   }
+  
   .activo:after {
-    content: "\2796"; /* Restaurante para signo (-) */
+    content: '-'; /*  para signo (-) */
+    font-size: 2.3rem;
+    color: var(--color_cuarto);
   }
+  .activo:hover:after {
+    content: '-'; /*  para signo (-) */
+    font-size: 2.3rem;
+    color: var(--color_cuarto);
+}
   .respuesta {
     width: 100%;
     padding: 0 20px;
     background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px; ;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
-    
+}
+.active-respuesta {
+  margin: 1rem 0;
+  border-radius:var(--border-radius);
+  box-shadow:var(--sombra_caja_2)
 }
 .respuesta p {
-    font-size: 1.2em;
-    margin-top: 1.5em;
-    margin-bottom: 1.5em;
-}
-@media (max-width: 320px) { 
-    section h1 {
-        font-size: 1.5rem;
-    }
-}
-@media (min-width: 640px) { 
-    section {
-        padding: 3rem 1rem;
-    }
-}
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-	section h1 {
-        font-size: 1.8rem;
-    }
-    section p {
-        font-size: 1.3rem;
-    }
-    section {
-        padding: 3rem 1rem;
-    }
-}
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {
-    section {
-        padding: 3rem 3rem;
-        min-height: 45vh;
-    }
+  text-wrap: pretty;
+    font-size: 1.3rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
-/* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-	section {
-        margin-top: 0;
-        padding: 3rem 4rem;
-        min-height: 75vh;
-    }
-	section h1 {
-        font-size: 2.2rem;
-    }
-    section p {
-        font-size: 1.4rem;
-    }
-}
+
 </style>

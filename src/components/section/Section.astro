@@ -1,0 +1,58 @@
+---
+interface Props {
+    class?:string
+}
+---
+
+<section class:list={Astro.props.class}>
+    <slot/>
+</section>
+
+<style>
+  .call_to_action {
+        margin-top: 3rem;
+        background-color:var(--color_secundario);
+        border-top-left-radius: 2rem;
+        border-top-right-radius: 2rem;
+    }
+    
+  .presencia_en_linea {
+    background-color: var(--color_primario);
+    color: var(--color_cuarto);
+  }
+  .color_secundario{
+    background-color: var(--color_secundario)
+  }
+  .color_primario {
+    background-color: var(--color_primario);
+  }
+  /* Small devices (landscape phones, 576px and up) */
+section {
+        width: 100%;
+        padding: 3rem 1.4rem;
+    }
+
+@media (min-width: 576px) {
+    section {
+        width: 100%;
+        padding: 3rem 1.9rem;
+    }
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    section {
+        width: 100%;
+        padding: 3rem 1.9rem;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    section {
+        width: 100%;
+        padding: 5rem 4.5rem;
+    }
+
+}
+
+</style>

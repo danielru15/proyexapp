@@ -1,0 +1,69 @@
+<section>
+    <div>
+        <h1>NUESTROS SERVICIOS</h1>
+        <p>En <strong>PROYEXAPP</strong>, ofrecemos una amplia gama de servicios diseñados para llevar tu presencia en línea al siguiente nivel y ayudarte a destacarte en un mercado cada vez más competitivo.</p>
+    </div>
+    <img src="serviciosHero.webp" alt="imagen del hero servicios programando web" title="imagen del hero servicios">
+</section>
+
+<style>
+    section {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--color_primario);
+        padding-top: 9rem;
+        gap: 2rem;
+    }
+    section img {
+        width: 100vw;
+        filter: drop-shadow(var(--sombra_caja));
+    }
+    div {
+        padding: 2rem;
+    }
+    h1{
+        font-size: 2.7rem;
+        color: var(--color_cuarto);
+        margin-bottom: 1rem;
+    }
+    p {
+        font-size: 1.4rem;
+        color:var(--color_cuarto) ;
+    }
+@media (max-width: 280px) {
+  
+}
+@media (min-width: 576px) {
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    
+}
+@media (min-width: 1200px) {
+    section {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        background-color: var(--color_primario);
+        padding-top: 9rem;
+        gap: 0;
+    }
+    section img {
+        width: 45vw;
+        filter: drop-shadow(var(--sombra_caja));
+    }
+    div {
+        padding: 0;
+    }
+    h1{
+        font-size: 3.2rem;
+        margin-bottom: 0;
+    }
+    p {
+        font-size: 1.6rem;
+    }
+    strong {
+        font-size: 1.7rem;
+    }
+}
+</style>

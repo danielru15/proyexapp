@@ -1,0 +1,69 @@
+---
+import Card_Icon from "@/components/cards/Card_icon.astro";
+import Section from "../Section.astro";
+---
+
+<Section class="color_primario">
+    <h2>Nuestros servicios <br>incluyen</h2>
+    <div>
+        <Card_Icon
+            iconName="IconChat"
+            subtitle="Consultoría y Asesoramiento"
+            description="Te orientamos y acompañamos en todo el proceso de creación de tu web, desde el inicio hasta su publicación."
+        />
+        <Card_Icon
+            iconName="IconResponsive"
+            subtitle="Diseño responsive"
+            description="Garantizamos que tu sitio web se vea y funcione perfectamente en cualquier pantalla."
+        />
+        <Card_Icon
+            iconName="IconSettings"
+            subtitle="Mantenimiento y Soporte"
+            description="Ofrecemos servicios de mantenimiento y soporte para garantizar que tu sitio web siga funcionando."
+        />
+        <Card_Icon
+        iconName="IconDatabase"
+        subtitle="Hosting y dominio"
+        description="Ofrecemos hosting y dominio gratis en cualquiera de tus servicios web."
+    />
+    
+   
+    </div>
+</Section>
+
+<style>
+    h2 {
+    font-size: 2.3rem;
+    color: var(--color_cuarto);
+    text-align: right;
+   }
+   div {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 3rem 0;
+   }
+    @media (max-width: 280px) {
+        h2 {
+            font-size: 2rem;
+        }
+  
+}
+@media (min-width: 576px) {
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    
+}
+@media (min-width: 1200px) {
+   h2 {
+    font-size: 2.7rem;
+   }
+   div {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin: 3rem 0;
+   }
+}
+</style>

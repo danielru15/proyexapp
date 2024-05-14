@@ -1,0 +1,54 @@
+---
+import Faq from "../../Faq.astro";
+import Section from "../Section.astro";
+
+const preguntas_respuestas = [
+	{
+		pregunta:'¿Cómo funciona el proceso de diseño y desarrollo de mi sitio web?',
+		respuesta:'Nuestro proceso de diseño y desarrollo comienza con una consulta inicial para comprender tus necesidades y objetivos específicos. A partir de ahí, trabajaremos contigo para desarrollar un plan personalizado y llevar tu visión a la realidad digital. Te mantendremos informado en cada paso del proceso y te daremos la oportunidad de revisar y proporcionar retroalimentación en cada etapa del desarrollo.'
+	},
+	{
+		pregunta:'¿Cuánto tiempo lleva completar un proyecto de diseño y desarrollo web?',
+		respuesta:'El tiempo necesario para completar un proyecto de diseño y desarrollo web puede variar según la complejidad del proyecto, los requisitos específicos y la disponibilidad de los recursos. Sin embargo, nos esforzamos por cumplir con los plazos acordados y trabajar de manera eficiente para entregar resultados de alta calidad en un tiempo razonable.'
+	},
+	{
+		pregunta:'¿Cómo puedo comenzar mi proyecto de diseño y desarrollo web con PROYEXAPP?',
+		respuesta:'¡Es fácil comenzar tu proyecto con nosotros! Simplemente ponte en contacto con nosotros a través de nuestro formulario de contacto en línea o por teléfono y estaremos encantados de discutir tus necesidades y comenzar a trabajar en tu proyecto de inmediato.'
+	},
+	{
+		pregunta:'¿Tienen algún programa de referidos o descuentos para clientes recurrentes?',
+		respuesta:'Sí, ofrecemos programas de referidos y descuentos especiales para clientes recurrentes como parte de nuestro compromiso de recompensar la lealtad de nuestros clientes. ¡Ponte en contacto con nosotros para obtener más información sobre cómo puedes beneficiarte de estas ofertas especiales!'
+	}]
+---
+
+<Section>
+    <h2>Explora las preguntas frecuentes</h2>
+    <Faq preguntaYrespuesta={preguntas_respuestas}/>
+</Section>
+
+<style>
+h2 {
+	font-size: 2.3rem;
+	margin-bottom: 2rem;
+    color: var(--color_primario);
+}
+
+@media (max-width: 280px) {
+	h2 {
+		font-size: 2rem;
+	}
+}
+@media (min-width: 576px) {
+
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+	
+}
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    h2 {
+        font-size: 2.7rem;
+    }
+}
+</style>

@@ -1,0 +1,73 @@
+---
+import Formulario from "@/components/formulario/Formulario.astro";
+import Section from "../Section.astro";
+import Card_Icon from "@/components/cards/Card_icon.astro";
+
+---
+<Section class="color_secundario">
+
+    <div>
+        <Card_Icon 
+            iconName="IconTelefono"
+            subtitle="Numero telefono | Whatsapp"
+            description="+57 3217513801"
+        />
+        <Card_Icon 
+            iconName="IconEmail"
+            subtitle="Email"
+            description="proyexapp@gmail.com"
+        />
+        <Card_Icon 
+            iconName="IconReloj"
+            subtitle="Horario de atención"
+            description={"Lunes - Jueves: 11:00AM - 6:00PM" + "\n" + "Viernes: 11:00AM - 5:00PM"+ "\n" +"Sabado - Domingo: Cerrado"}
+            p_class="salto_linea"
+        />
+    </div>
+    <p>Nos complace hablar con usted sobre negocios en línea. Contáctenos y díganos qué podemos hacer por usted.</p>
+    <div class="flex-center">
+        <Formulario/>
+    </div>
+    
+</Section>
+
+<style>
+    div {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin: 3rem 0;
+    }
+    p {
+        text-align: center;
+        font-size: 2rem;
+        color: var(--color_primario);
+        font-weight: 400;
+    }
+    .flex-center {
+        display: flex;
+        justify-content: center;
+    }
+    @media (max-width: 280px) {
+        p {
+            font-size: 1.4rem;
+        }
+  
+}
+@media (min-width: 576px) {
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    
+}
+@media (min-width: 1200px) {
+     div {
+        flex-direction: row;
+        margin: 4rem 0;
+    }
+
+    p {
+        font-size: 2.3rem;
+    }
+}
+</style>

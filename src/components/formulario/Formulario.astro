@@ -1,0 +1,176 @@
+---
+import IconMessage from "@/icons/Icon_message.astro";
+import sendGrid from '@sendgrid/mail';
+sendGrid.setApiKey( import.meta.env.SENDGRID_API_KEY );
+
+if (Astro.request.method === 'POST') {
+  try{
+    // Getting posted data from our contact form
+    const data = await Astro.request.formData();
+    const name = data.get('name');
+    const email = data.get('email');
+    const message = data.get('message');
+
+    // TODO: Do not forget to do validation and error handling over received data from your contact form.
+
+    // Sending email
+    const msg  = {
+      to: 'proyexapp@gmail.com', // Change to your recipient
+      from: 'proyexapp@gmail.com', // Change to your verified sender
+      subject: `Contact form submission`,
+      text: `${message}`,
+    }
+    await sendGrid.send(msg).then(() => {
+      console.log('Email sent')
+    }).catch((error) => {
+      console.error(error)
+    });
+
+  } catch (error) {
+    console.error(error);
+  }
+}
+---
+<div class="container">
+    <form method="POST">
+       <div class="flex-row">
+            <div >
+                <label for="subject">Nombre</label>
+                <input   type="text" name="name" placeholder="Nombre" required>
+            </div>
+            <div>
+                <label for="subject">Apellido</label>
+                <input type="text"  placeholder="Apellido" required>
+            </div>
+       </div>
+        <div class="flex-row">
+            <div>
+                <label for="email">Email</label>
+                <input type="email" name="email"  placeholder="name@correo.com" required>
+            </div>
+            <div>
+                <label for="subject">Telefono</label>
+                <input type="tel"   placeholder="(Código de área) Número" required>
+            </div>
+        </div>
+        <div class="sm">
+            <label for="message">Escribenos</label>
+            <textarea  name="message" id="message" rows="7"   placeholder="Escribenos..."></textarea>
+        </div>
+        <div class="button">
+            <button type="submit">
+                <IconMessage color="var(--color_primario)" width="24" height="24"/>
+                Enviar mensaje</button>
+        </div>
+       
+    </form>
+</div>
+
+
+<style>
+.container {
+    width: 100%;
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: var(--color_primario);
+    border-radius: var(--border-radius);
+    box-shadow: var(--sombra_caja_2);
+}
+.flex-row {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+form {
+    width: 100%;
+}
+form  div label {
+    text-align: left;
+    display: block; 
+    margin-bottom: 0.5rem; 
+    margin-top: 1rem;
+    font-size: 1.3rem;
+    line-height: 1.25rem; 
+    color: var(--color_terciario); 
+}
+form .flex-row div {
+    width: 100%;
+}
+form .flex-row div input {
+	display: block; 
+	padding: 1rem; 
+	border-radius: 0.5rem; 
+	border:1px solid #D1D5DB; 
+	width: 100%; 
+	font-size:1rem;
+	line-height: 1.25rem; 
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); 
+}
+
+form .sm textarea {
+	display: block; 
+	padding: 0.625rem; 
+	border-radius: 0.5rem; 
+	border:1px solid #D1D5DB; 
+    width: 100%;
+	font-size: 1rem;
+	line-height: 1.25rem; 
+	background-color: #F9FAFB; 
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); 
+	resize: none;
+}
+form .button {
+    display: flex;
+    justify-content: flex-end;
+}
+form button {
+display: flex;
+align-items: center;
+gap: .7rem;
+margin-top: .8rem;
+padding-top: 0.75rem;
+padding-bottom: 0.75rem; 
+padding-left: 1.25rem;
+padding-right: 1.25rem; 
+border-radius: 0.5rem; 
+font-size: 0.875rem;
+line-height: 1.25rem; 
+font-weight: 500; 
+text-align: center; 
+border: 0;
+background-color: var(--color_terciario);
+color: var(--color_primario); 
+cursor: pointer;
+}
+@media (max-width: 576px) {
+    form button { 
+        width: 100%;
+        justify-content: center;
+    }
+}
+form button:hover {
+    background-color: var(--color_secundario);
+}
+
+
+@media (min-width: 576px) {
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    
+}
+@media (min-width: 1200px) {
+    .container {
+        width: 50vw;
+        padding: 2rem
+    }
+    .flex-row {
+        flex-direction:row;
+        gap:1rem
+    }
+    form .button {
+    display: flex;
+    justify-content: flex-end;
+}
+}
+</style>

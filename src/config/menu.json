@@ -1,16 +1,16 @@
 {
-    "main": [
-      {
-        "name": "Servicios",
-        "url": "/servicios"
-      },
-      {
-        "name": "Nosotros",
-        "url": "/nosotros"
-      },
-      {
-        "name": "Contactanos",
-        "url": "/contactanos"
-      }
-    ]
-  }
+  "main": [
+    {
+      "name": "Servicios",
+      "url": "/servicios"
+    },
+    {
+      "name": "Nosotros",
+      "url": "/nosotros"
+    },
+    {
+      "name": "Contactanos",
+      "url": "/contactanos"
+    }
+  ]
+}

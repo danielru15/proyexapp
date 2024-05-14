@@ -1,0 +1,104 @@
+---
+import Section from "../Section.astro";
+---
+
+<Section class="presencia_en_linea">
+<div class="flex-titulo">    
+    <h2>EL PODER DE TU PRESENCIA EN LÍNEA</h2>
+    <p>En un mundo cada vez más digitalizado, tu presencia en línea es la clave para destacar, conectar y prosperar. En PROYEXAPP, estamos aquí para ayudarte a desbloquear todo el potencial de tu marca con sitios web que no solo impresionan, sino que cautivan a tu audiencia desde el primer clic.</p>
+</div>
+<div class="flex">
+    <div>
+        <h3>+91% </h3>
+        <p>Visitas</p>
+    </div>
+    <div>
+        <h3>+40%</h3>
+        <p>clientes</p>
+    </div>
+    <div>
+        <h3>+84%</h3>
+        <p>Credibilidad</p>
+    </div>
+</div>
+</Section>
+
+<style>
+    .flex-titulo {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .flex-titulo h2 {
+        font-size: 2.3rem;
+    }
+    .flex-titulo p {
+        font-size: 1.4rem;
+    }
+    .flex {
+        display: flex;
+        gap: .7rem;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+    .flex div {
+        text-align: center;
+    }
+    .flex div h3 {
+        font-size: 2.2rem;
+    }
+    .flex div p {
+        font-size:  1.3rem;
+    }
+    @media (max-width: 280px) {
+        .flex-titulo h2 {
+        font-size: 2rem;
+    }
+    .flex-titulo p {
+        font-size: 1.3rem;
+    }
+    
+    .flex div h3 {
+        font-size: 1.4rem;
+    }
+    .flex div p {
+        font-size:  1.3rem;
+    }
+
+    }
+    @media (min-width: 576px) {
+
+    }
+    /* Medium devices (tablets, 768px and up) */
+    @media (min-width: 768px) {
+        
+    }
+    /* Extra large devices (large desktops, 1200px and up) */
+    @media (min-width: 1200px) {
+    .flex-titulo {
+        display: flex;
+        flex-direction: row;
+    }
+    .flex-titulo h2 {
+        font-size: 2.7rem;
+    }
+    .flex-titulo p {
+        width: 60vw;
+        font-size: 1.4rem;
+        text-align: left;
+    }
+    .flex {
+        margin-top: 4rem;
+        display: flex;
+        align-items: center;
+        justify-content:space-evenly;
+    }
+    .flex div h3{
+        font-size: 4rem;
+    }
+    .flex div p {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+}
+</style>

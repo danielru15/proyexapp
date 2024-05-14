@@ -1,103 +1,29 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/Navbar.astro'
-import Hero from '../components/Hero.astro';
-import Section from '../components/Section.astro';
-import Faq from '../components/Faq.astro'
-import Footer from '../components/Footer.astro';
-import CTA from '../components/CTA.astro';
----
+import Layout from "@/layouts/Layout.astro"
+import ExperienciaInmersiva from "@/components/section/inicio/ExperienciaInmersiva.astro"
+import PresenciaEnLinea from "@/components/section/inicio/PresenciaEnLinea.astro"
+import PorqueProyexapp from "@/components/section/inicio/PorqueProyexapp.astro"
+import CallAction from "@/components/call_to_action/CallAction.astro"
+import Hero from "@/components/section/inicio/Hero.astro"
+import PreguntasFrecuentes from "@/components/section/inicio/PreguntasFrecuentes.astro"
 
+
+---
 <Layout 
-	title="proyexapp" 
+	title="PROYEXAPP" 
 	description='En proyexapp, ofrecemos servicios de diseño y desarrollo web personalizados para ayudarte a destacar en línea. Desde sitios web elegantes hasta estrategias de marketing digital, ¡hacemos que tu presencia en línea brille!'
 >
-	<Navbar/>
-	<Hero title='Transformamos tus conceptos en experiencias digitales.'/>
-	<main>
-		<Section 
-		className="card" 
-		card_className="card_content"
-		title='Descubre el Poder de tu Presencia en Línea' 
-		text='En un mundo cada vez más digitalizado, tu presencia en línea es la clave para destacar, conectar y prosperar. En PROYEXAPP, estamos aquí para ayudarte a desbloquear todo el potencial de tu marca con sitios web que no solo impresionan, sino que cautivan a tu audiencia desde el primer clic.',
-		card={
-		[
-			{
-				number:"+91%",
-				text:"Visitas"
-			},
-			{
-				number:"+40%",
-				text:"Clientes"
-			},
-			{
-				number:"+84%",
-				text:"Credibilidad"
-			}
-		]}
-		/>
-		
-		<Section 
-			className="card" 
-			card_className="card_content"
-			title='Más que Solo un Sitio Web: una Experiencia Inmersiva' 
-			text='En PROYEXAPP, entendemos que tu sitio web es más que solo una página en línea; es tu carta de presentación digital, tu puente hacia nuevas oportunidades. Es por eso que nos esforzamos por crear experiencias web que no solo se vean increíbles, sino que también ofrezcan una navegación fluida, una funcionalidad impecable y un contenido cautivador que mantenga a tus visitantes comprometidos y regresando por más.',
-			card={[]}
-			/>
-		
-		<Section
-		className="card_content_" 
-		card_className="card_content_box"
-		title='¿ Porque proyexapp ?' 
-		text=' No solo construimos sitios web; construimos relaciones duraderas. Nos enorgullece ofrecer un servicio personalizado, transparente y orientado a resultados que se adapta a tus necesidades única',
-		card={[
-				{
-				number:"Enfocados en la atención al cliente",
-				text:"Más que código, Buscamos comprender y ayudar a nuestros clientes a alcanzar sus objetivos"
-			},
-			{
-				number:"Diseño UI/UX",
-				text:"Creamos sitios que cumplen tus necesidades con diseños modernos, minimalistas  y  con una buena experiencia al usuario ."
-			},
-			{
-				number:"Estandar  de calidad",
-				text:"Generamos sitios de código limpio y apegados a los estándares de calidad de la W3C (World Wide Web Consortium)."
-			}
-		]}
-		/>
-		
-	
-	</main>	
-	<Faq title='Explora las preguntas frecuentes' preguntaYrespuesta={[
-	{
-		pregunta:'¿Cómo funciona el proceso de diseño y desarrollo de mi sitio web?',
-		respuesta:'Nuestro proceso de diseño y desarrollo comienza con una consulta inicial para comprender tus necesidades y objetivos específicos. A partir de ahí, trabajaremos contigo para desarrollar un plan personalizado y llevar tu visión a la realidad digital. Te mantendremos informado en cada paso del proceso y te daremos la oportunidad de revisar y proporcionar retroalimentación en cada etapa del desarrollo.'
-	},
-	{
-		pregunta:'¿Cuánto tiempo lleva completar un proyecto de diseño y desarrollo web?',
-		respuesta:'El tiempo necesario para completar un proyecto de diseño y desarrollo web puede variar según la complejidad del proyecto, los requisitos específicos y la disponibilidad de los recursos. Sin embargo, nos esforzamos por cumplir con los plazos acordados y trabajar de manera eficiente para entregar resultados de alta calidad en un tiempo razonable.'
-	},
-	{
-		pregunta:'¿Cómo puedo comenzar mi proyecto de diseño y desarrollo web con PROYEXAPP?',
-		respuesta:'¡Es fácil comenzar tu proyecto con nosotros! Simplemente ponte en contacto con nosotros a través de nuestro formulario de contacto en línea o por teléfono y estaremos encantados de discutir tus necesidades y comenzar a trabajar en tu proyecto de inmediato.'
-	},
-	{
-		pregunta:'¿Tienen algún programa de referidos o descuentos para clientes recurrentes?',
-		respuesta:'Sí, ofrecemos programas de referidos y descuentos especiales para clientes recurrentes como parte de nuestro compromiso de recompensar la lealtad de nuestros clientes. ¡Ponte en contacto con nosotros para obtener más información sobre cómo puedes beneficiarte de estas ofertas especiales!'
-	}]}/>
-	<CTA/>
-	<Footer/>
-
+	<Hero/>
+	<ExperienciaInmersiva/>
+	<PresenciaEnLinea/>
+	<PorqueProyexapp/>
+	<PreguntasFrecuentes/>
+	<CallAction/>
 </Layout>
 
 <style>
-	main {
-		margin: 0 auto;
-		text-align: center;
-	}
-	
-	
-	/* Small devices (landscape phones, 576px and up) */
+
+/* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
 main {
 		padding:40px 30px;

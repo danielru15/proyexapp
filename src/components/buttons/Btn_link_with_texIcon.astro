@@ -1,0 +1,26 @@
+---
+import { ICONS } from '@/icons/icons.astro';
+
+interface Props {
+    iconName:string;
+    link:string;
+    title:string
+}
+
+const { link, title, iconName} = Astro.props;
+const Icon = ICONS[iconName]
+---
+<a class="btn btn_primary" href={link} title={title} target="_blank">
+    <Icon color="var(--color_primario)" width="26" height="27"/>
+    {title}
+</a>
+
+<style>
+    a {
+        display: flex;
+        align-items: center;
+        gap: .7rem;
+        font-size: 1.3rem;
+    }
+    
+</style>

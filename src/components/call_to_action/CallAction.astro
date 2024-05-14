@@ -1,0 +1,62 @@
+---
+import Section from "@/components/section/Section.astro";
+import Btn_link_with_textIcon from "@/components/buttons/Btn_link_with_texIcon.astro"
+---
+
+<Section class="call_to_action">
+    <div>
+        <h2>¡Empieza tu Viaje Digital Hoy!</h2>
+        <p>Permítenos ayudarte a transformar tu visión en una experiencia digital y llevar tu negocio a nuevos horizontes en la web.</p>
+
+        <div class="button-container">
+            <Btn_link_with_textIcon title="Cotizar ahora" link="https://wa.me/573217513801?text=Hola,%20me%20gustaría%20cotizar%20una%20página%20web" iconName="IconMessage"/>
+        </div>
+
+    </div>
+    
+  
+    
+</Section>
+
+<style>
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 1.3rem 0;
+   }
+   h2 {
+         text-align: center;
+        color:var(--color_primario);
+        font-size: 2rem;
+   }
+   p {
+        text-align: center;
+        font-size: 1.4rem;
+   }
+   .button-container {
+        display: inline-flex; 
+        flex-shrink: 0;
+    }
+@media (max-width: 280px) {
+   h2 {
+      font-size: 1.6rem;
+   }
+}
+@media (min-width: 576px) { 
+
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    
+}
+@media (min-width: 1200px) {
+    h2 {
+        font-size: 2.7rem;
+    }
+    p {
+        font-size: 2.2rem;
+    }
+}
+</style>

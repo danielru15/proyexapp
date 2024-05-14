@@ -1,9 +1,8 @@
 ---
 import menu from '../config/menu.json';
-interface NavigationLink {
-  name: string;
-  url: string;
-}
+import type { NavigationLink } from '@/types/menu';
+
+
 const { main }: { main: NavigationLink[] } = menu
 ---
 
@@ -30,7 +29,6 @@ const { main }: { main: NavigationLink[] } = menu
 
 <style>
     footer {
-        margin-top: 2em;
         background-color:#0e2d5f;
         box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); 
     }
@@ -58,9 +56,9 @@ const { main }: { main: NavigationLink[] } = menu
     .flex ul a {
         font-size: 1rem;
         line-height: 1.25rem; 
-        font-weight: 500;
         margin-inline-end: 1rem;
-        color: whitesmoke
+        color: whitesmoke;
+        text-transform: uppercase;
     }
     .flex ul a:hover {
         text-decoration: underline; 

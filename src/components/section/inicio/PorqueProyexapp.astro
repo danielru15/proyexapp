@@ -1,0 +1,89 @@
+---
+import Card_Icon from "../../cards/Card_icon.astro";
+import Section from "../Section.astro";
+// El icon se pone solo el nombre sin el i¡
+---
+
+<Section class="color_secundario">
+<div class="text">
+    <h2>¿ PORQUE PROYEXAPP ?</h2>
+    <p>No solo construimos sitios web; construimos relaciones duraderas. Nos enorgullece ofrecer un servicio personalizado, transparente y orientado a resultados que se adapta a tus necesidades únicas.</p>
+</div>
+    <div class="flex">
+    <Card_Icon 
+        iconName="IconChat"
+        subtitle="Enfocados en la atención al cliente"
+        description="Más que código, Buscamos comprender y ayudar a nuestros clientes a alcanzar sus objetivos"
+     />
+    <Card_Icon 
+        iconName="IconCreative"
+        subtitle="Diseño UI/UX"
+        description="Creamos sitios que cumplen tus necesidades con diseños modernos, minimalistas y con una buena experiencia al usuario."
+    />
+    <Card_Icon 
+        iconName="IconStart"
+        subtitle="Estándar de calidad"
+        description="Generamos sitios de código limpio y apegados a los estándares de calidad de la W3C (World Wide Web Consortium)."
+    />
+    
+    </div>
+
+</Section>
+
+<style>
+    .text {
+        margin-bottom: 2rem;
+    }
+    .text h2 {
+        font-size: 2.2rem;
+        text-align: center;
+        color: var(--color_primario);
+        margin-bottom: 1.5rem
+    }
+    .text p {
+        font-size: 1.43rem;
+        text-align:center;
+    }
+   
+@media (max-width: 280px) {
+.text h2 {
+    font-size: 2rem;
+}
+.text p {
+    font-size: 1.2rem;
+}
+}
+@media (max-width: 576px) {
+    .flex {
+        display: flex;
+        flex-direction: row;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        gap: 1rem;
+    }
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    
+}
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .flex {
+        display: flex;
+       
+        gap: 1rem;
+        margin-bottom: 4rem;
+    }
+    .text {
+        margin-bottom: 4rem;
+    }
+    .text h2 {
+        font-size: 2.7rem;
+    }
+    .text p {
+        font-size: 1.6rem;
+        text-align: center;
+    }
+    .
+}
+</style>
