@@ -2,7 +2,6 @@
 import IconMessage from "@/icons/Icon_message.astro";
 import { MailerSend, EmailParams, Sender, Recipient } from "mailersend";
 
-
 if (Astro.request.method === 'POST') {
   try{
     // Getting posted data from our contact form
@@ -12,12 +11,13 @@ if (Astro.request.method === 'POST') {
     const email = data.get('tel');
     const tel = data.get('message')
     const message = data.get('message');
-    const mailerSend = new MailerSend({ apiKey:'mlsn.711f27ba88ee654e61e10db18b4665cd4857024f51ce2968839fd536526beecd'});
-    const sentFrom = new Sender("MS_6HGfdx@proyexapp.com", `${name}`)
+    const mailerSend = new MailerSend({ apiKey:import.meta.env.SEND_API_KEY});
+    const sentFrom = new Sender("MS_Mz42TJ@trial-vywj2lp7o7kl7oqz.mlsender.net", `${name}`)
     const recipients = [new Recipient("proyexapp@gmail.com", `${name}`)];
     const Cc = [new Recipient(`${email}`, `${name}`)]
     const reply = new Recipient(`${email}`, `${name}`)
-    const messages = `${message}`
+    const messages = `Nombre: ${name} Apellido: ${last_name} telefono:${tel} email: ${email} mensaje:${message}`
+
     if(name !== '' && email !== '' && message !== ''){
         const emailParams = new EmailParams()
         .setFrom(sentFrom)
@@ -37,22 +37,22 @@ if (Astro.request.method === 'POST') {
     <form method="POST">
        <div class="flex-row">
             <div >
-                <label for="subject">Nombre</label>
-                <input   type="text" name="name" placeholder="Nombre" required>
+                <label for="name">Nombre</label>
+                <input   type="text" name="name" id="name" placeholder="Nombre" required>
             </div>
             <div>
-                <label for="subject">Apellido</label>
-                <input type="text" name="last_name" placeholder="Apellido" required>
+                <label for="apellido">Apellido</label>
+                <input type="text" name="last_name" id="apellido" placeholder="Apellido" required>
             </div>
        </div>
         <div class="flex-row">
             <div>
                 <label for="email">Email</label>
-                <input type="email" name="email"  placeholder="name@correo.com" required>
+                <input type="email" name="email" id="email"  placeholder="name@correo.com" required>
             </div>
             <div>
-                <label for="subject">Telefono</label>
-                <input type="tel"  name="tel"  placeholder="(Código de área) Número" required>
+                <label for="tel">Telefono</label>
+                <input type="tel"  name="tel" id="tel"  placeholder="(Código de área) Número" required>
             </div>
         </div>
         <div class="sm">
