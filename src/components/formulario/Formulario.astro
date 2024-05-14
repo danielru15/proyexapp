@@ -18,11 +18,10 @@ if (Astro.request.method === 'POST') {
     const reply = new Recipient(`${email}`, `${name}`)
     const messages = `Nombre: ${name} Apellido: ${last_name} telefono:${tel} email: ${email} mensaje:${message}`
 
-    if(name !== '' && email !== '' && message !== ''){
+    if(name !== '' && email !== ''){
         const emailParams = new EmailParams()
         .setFrom(sentFrom)
         .setTo(recipients)
-        .setCc(Cc)
         .setReplyTo(reply)
         .setSubject(`Soy ${name} ${last_name} y quiero cotizar un servicio`)
         .setHtml(messages)
