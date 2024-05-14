@@ -7,28 +7,29 @@ if (Astro.request.method === 'POST') {
     const data = await Astro.request.formData();
     const name = data.get('name');
     const last_name = data.get('last_name');
-    const email = data.get('tel');
-    const tel = data.get('message')
+    const email = data.get('email');
+    const tel = data.get('tel');
     const message = data.get('message');
-    const mailerSend = new MailerSend({ apiKey:'mlsn.407bb956c5b7afd1114b2e38601aaf746d60a84b82fa704be699d1a7686f56df'})
+    const mailerSend = new MailerSend({ apiKey:'mlsn.407bb956c5b7afd1114b2e38601aaf746d60a84b82fa704be699d1a7686f56df'});
     const sentFrom = new Sender("MS_8gKf7k@trial-vywj2lp7o7kl7oqz.mlsender.net", `${name}`)
-    const recipients = [new Recipient("proyexapp@gmail.com", `${name}`)];
-    const Cc = [new Recipient(`${email}`, `${name}`)]
-    const messages = `Nombre: ${name} Apellido: ${last_name} telefono:${tel} email: ${email} mensaje:${message}`
+    const recipients = [
+  new Recipient("proyexapp@gmail.com", `${name}`)
+];
+    // TODO: Do not forget to do validation and error handling over received data from your contact form.
+if(name !== '' && email !== ''){
+    const emailParams = new EmailParams()
+  .setFrom(sentFrom)
+  .setTo(recipients)
+  .setSubject(`Soy ${name}${last_name} y quiero cotizar una pagina web`)
+  .setReplyTo(new Recipient(`${email}`, `${name}`))
+  .setHtml(`${tel}, ${message}`)
+  await mailerSend.email.send(emailParams)
+}
+} catch (error) {
+    console.log(error)
+}
+}
 
-    if(name !== '' && email !== ''){
-        const emailParams = new EmailParams()
-        .setFrom(sentFrom)
-        .setTo(recipients)
-        .setReplyTo(new Recipient(`${email}`, `${name}`))
-        .setSubject(`Soy ${name} ${last_name} y quiero cotizar un servicio`)
-        .setHtml('hola')
-        await mailerSend.email.send(emailParams)
-    }
-    } catch (error) {
-        console.log(error)
-    }
-    }
 ---
 <div class="container">
     <form method="POST">
