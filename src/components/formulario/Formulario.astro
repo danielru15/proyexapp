@@ -4,27 +4,27 @@ import { MailerSend, EmailParams, Sender, Recipient } from "mailersend";
 
 
 if (Astro.request.method === 'POST') {
-    const mailerSend = new MailerSend({
-  apiKey:'mlsn.2278a90f2998cb2f1aaddd9b6c117e721cbbce5d524351de22f3d3c2c5312512',
-});
-    const sentFrom = new Sender("MS_Mz42TJ@trial-vywj2lp7o7kl7oqz.mlsender.net", "Your name")
-    const recipients = [
-  new Recipient("proyexapp@gmail.com", "Your Client")
-];
   try{
     // Getting posted data from our contact form
     const data = await Astro.request.formData();
     const name = data.get('name');
+    const last_name = data.get('last_name');
     const email = data.get('email');
     const message = data.get('message');
+    const mailerSend = new MailerSend({ apiKey:'mlsn.2278a90f2998cb2f1aaddd9b6c117e721cbbce5d524351de22f3d3c2c5312512'});
+    const sentFrom = new Sender("MS_Mz42TJ@trial-vywj2lp7o7kl7oqz.mlsender.net", `${name}`)
+    const recipients = [
+  new Recipient("proyexapp@gmail.com", `${name}`)
+];
 
     // TODO: Do not forget to do validation and error handling over received data from your contact form.
 
     const emailParams = new EmailParams()
   .setFrom(sentFrom)
   .setTo(recipients)
-  .setSubject("This is a Subject")
-  .setHtml("<strong>This is the HTML content</strong>")
+  .setSubject(`Soy ${name} ${last_name} y quiero cotizar una pagina web`)
+  .setReplyTo(new Recipient(`${email}`, `${name}`))
+  .setHtml("<strong>This` is the HTML content</strong>")
   .setText("This is the text content");
   await mailerSend.email.send(emailParams)
 } catch (error) {
@@ -41,7 +41,7 @@ if (Astro.request.method === 'POST') {
             </div>
             <div>
                 <label for="subject">Apellido</label>
-                <input type="text"  placeholder="Apellido" required>
+                <input type="text" name="last_name" placeholder="Apellido" required>
             </div>
        </div>
         <div class="flex-row">
