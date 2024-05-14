@@ -1,7 +1,7 @@
 ---
 import IconMessage from "@/icons/Icon_message.astro";
 import sendGrid from '@sendgrid/mail';
-sendGrid.setApiKey( import.meta.env.SENDGRID_API_KEY );
+sendGrid.setApiKey( import.meta.env.SEND_API_KEY );
 
 if (Astro.request.method === 'POST') {
   try{
