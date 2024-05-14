@@ -18,15 +18,15 @@ if (Astro.request.method === 'POST') {
 ];
 
     // TODO: Do not forget to do validation and error handling over received data from your contact form.
-
+if(name !== '' && email !== ''){
     const emailParams = new EmailParams()
   .setFrom(sentFrom)
   .setTo(recipients)
-  .setSubject(`Soy ${name} ${last_name} y quiero cotizar una pagina web`)
+  .setSubject(`Soy ${name}${last_name} y quiero cotizar una pagina web`)
   .setReplyTo(new Recipient(`${email}`, `${name}`))
-  .setHtml("<strong>This` is the HTML content</strong>")
-  .setText("This is the text content");
+  .setHtml(`${message}`)
   await mailerSend.email.send(emailParams)
+}
 } catch (error) {
     console.log(error)
 }
