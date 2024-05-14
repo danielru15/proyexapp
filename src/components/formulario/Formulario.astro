@@ -14,14 +14,13 @@ if (Astro.request.method === 'POST') {
     const sentFrom = new Sender("MS_8gKf7k@trial-vywj2lp7o7kl7oqz.mlsender.net", `${name}`)
     const recipients = [new Recipient("proyexapp@gmail.com", `${name}`)];
     const Cc = [new Recipient(`${email}`, `${name}`)]
-    const reply = new Recipient(`${email}`, `${name}`)
     const messages = `Nombre: ${name} Apellido: ${last_name} telefono:${tel} email: ${email} mensaje:${message}`
 
     if(name !== '' && email !== ''){
         const emailParams = new EmailParams()
         .setFrom(sentFrom)
         .setTo(recipients)
-        .setReplyTo(reply)
+        .setReplyTo(new Recipient(`${email}`, `${name}`))
         .setSubject(`Soy ${name} ${last_name} y quiero cotizar un servicio`)
         .setHtml('hola')
         await mailerSend.email.send(emailParams)
