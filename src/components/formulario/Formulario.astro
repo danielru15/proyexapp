@@ -17,7 +17,7 @@ if (Astro.request.method === 'POST') {
     const recipients = [new Recipient("proyexapp@gmail.com", `${name}`)];
     const Cc = [new Recipient(`${email}`, `${name}`)]
     const reply = new Recipient(`${email}`, `${name}`)
-    const messages = ``
+    const messages = `${message}`
     if(name !== '' && email !== '' && message !== ''){
         const emailParams = new EmailParams()
         .setFrom(sentFrom)
