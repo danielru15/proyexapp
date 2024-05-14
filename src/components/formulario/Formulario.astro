@@ -9,28 +9,29 @@ if (Astro.request.method === 'POST') {
     const data = await Astro.request.formData();
     const name = data.get('name');
     const last_name = data.get('last_name');
-    const email = data.get('email');
+    const email = data.get('tel');
+    const tel = data.get('message')
     const message = data.get('message');
-    const mailerSend = new MailerSend({ apiKey:'mlsn.2278a90f2998cb2f1aaddd9b6c117e721cbbce5d524351de22f3d3c2c5312512'});
-    const sentFrom = new Sender("MS_Mz42TJ@trial-vywj2lp7o7kl7oqz.mlsender.net", `${name}`)
-    const recipients = [
-  new Recipient("proyexapp@gmail.com", `${name}`)
-];
-
-    // TODO: Do not forget to do validation and error handling over received data from your contact form.
-if(name !== '' && email !== ''){
-    const emailParams = new EmailParams()
-  .setFrom(sentFrom)
-  .setTo(recipients)
-  .setSubject(`Soy ${name}${last_name} y quiero cotizar una pagina web`)
-  .setReplyTo(new Recipient(`${email}`, `${name}`))
-  .setHtml(`${message}`)
-  await mailerSend.email.send(emailParams)
-}
-} catch (error) {
-    console.log(error)
-}
-}
+    const mailerSend = new MailerSend({ apiKey:'mlsn.711f27ba88ee654e61e10db18b4665cd4857024f51ce2968839fd536526beecd'});
+    const sentFrom = new Sender("MS_6HGfdx@proyexapp.com", `${name}`)
+    const recipients = [new Recipient("proyexapp@gmail.com", `${name}`)];
+    const Cc = [new Recipient(`${email}`, `${name}`)]
+    const reply = new Recipient(`${email}`, `${name}`)
+    const messages = ``
+    if(name !== '' && email !== '' && message !== ''){
+        const emailParams = new EmailParams()
+        .setFrom(sentFrom)
+        .setTo(recipients)
+        .setCc(Cc)
+        .setReplyTo(reply)
+        .setSubject(`Soy ${name} ${last_name} y quiero cotizar un servicio`)
+        .setHtml(messages)
+        await mailerSend.email.send(emailParams)
+    }
+    } catch (error) {
+        console.log(error)
+    }
+    }
 ---
 <div class="container">
     <form method="POST">
@@ -51,7 +52,7 @@ if(name !== '' && email !== ''){
             </div>
             <div>
                 <label for="subject">Telefono</label>
-                <input type="tel"   placeholder="(Código de área) Número" required>
+                <input type="tel"  name="tel"  placeholder="(Código de área) Número" required>
             </div>
         </div>
         <div class="sm">
