@@ -23,7 +23,7 @@ if (Astro.request.method === 'POST') {
         .setHtml(`Nombre: ${name} ${last_name} <br> Telefono: ${tel} <br> Correo: ${email} <br><br> ${message}`)
         await mailerSend.email.send(emailParams)
        succes.message += "Mensaje enviado con exito pronto nos pondremos en contacto con usted"
-       return Astro.redirect("#mensaje")
+     Astro.redirect("#mensaje")
     }
     } catch (error) {
         console.error(error);
