@@ -13,7 +13,7 @@ if (Astro.request.method === 'POST') {
     const message = data.get('message');
     const mailerSend = new MailerSend({ apiKey:'mlsn.407bb956c5b7afd1114b2e38601aaf746d60a84b82fa704be699d1a7686f56df'});
     const sentFrom = new Sender("MS_8gKf7k@trial-vywj2lp7o7kl7oqz.mlsender.net", `${name}`)
-    const recipients = [ new Recipient("proyexapp@gmail.com", `${name}`)];
+    const recipients = [ new Recipient("proyexapp@gmail.com", 'PROYEXAPP')];
     if(name !== '' && email !== ''){
         const emailParams = new EmailParams()
         .setFrom(sentFrom)
@@ -23,6 +23,7 @@ if (Astro.request.method === 'POST') {
         .setHtml(`Nombre: ${name} ${last_name} <br> Telefono: ${tel} <br> Correo: ${email} <br><br> ${message}`)
         await mailerSend.email.send(emailParams)
        succes.message += "Mensaje enviado con exito pronto nos pondremos en contacto con usted"
+       return Astro.redirect("#mensaje")
     }
     } catch (error) {
         console.error(error);
@@ -31,8 +32,9 @@ if (Astro.request.method === 'POST') {
 }
 
 ---
+{succes.message && 
+<div id="mensaje"><p>{succes.message}</p></div>}
 <div class="container">
-    {succes.message && <p>{succes.message}</p>}
     <form method="POST">
        <div class="flex-row">
             <div >
@@ -69,6 +71,11 @@ if (Astro.request.method === 'POST') {
 
 
 <style>
+    #mensaje {
+        background-color: limegreen;
+        color: black;
+        font-size: 2rem;
+    }
 .container {
     width: 100%;
     margin-top: 2rem;
