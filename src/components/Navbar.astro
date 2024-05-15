@@ -8,7 +8,6 @@ const url_path = Astro.url.pathname.split("/")[1]
             <input type='checkbox' id='check' />
             <ul class="menu">
                     <li><a class={url_path === 'servicios' ? 'active' : null} href="/servicios">Servicios</a></li>
-                    <li><a class={url_path === 'nosotros' ? 'active' : null} href="/nosotros">Nosotros</a></li>
                     <li><a class={url_path === 'contactanos' ? 'active' : null} href="/contactanos">Contactanos</a></li>
                 <label for="check" class="close-menu">
                     <div>
