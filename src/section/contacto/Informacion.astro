@@ -1,6 +1,6 @@
 ---
 import Formulario from "@/components/formulario/Formulario.astro";
-import Section from "../Section.astro";
+import Section from "../../components/Section.astro";
 import Card_Icon from "@/components/cards/Card_icon.astro";
 
 ---
@@ -47,6 +47,8 @@ import Card_Icon from "@/components/cards/Card_icon.astro";
     .flex-center {
         display: flex;
         justify-content: center;
+        flex-direction: column;
+        align-items: center;
     }
     @media (max-width: 280px) {
         p {
