@@ -35,8 +35,7 @@ if (Astro.request.method === 'POST') {
         errors.tel += "Email no valido";
         }
 
-        const hasErrors = Object.values(errors).some(msg => msg)
-        if (!hasErrors) {
+ 
                 const emailParams = new EmailParams()
                 .setFrom(sentFrom)
                 .setTo(recipients)
@@ -45,7 +44,7 @@ if (Astro.request.method === 'POST') {
                 .setHtml(`Nombre: ${name} ${last_name} <br> Telefono: ${tel} <br> Correo: ${email} <br><br> ${message}`)
                 await mailerSend.email.send(emailParams)
                 messageInfo.sucess += "Mensaje enviado con exito pronto nos pondremos en contacto con usted"
-            }
+            
     }  
     catch (error) {
         console.error(error); 
