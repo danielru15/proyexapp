@@ -45,7 +45,6 @@ if (Astro.request.method === 'POST') {
                 .setHtml(`Nombre: ${name} ${last_name} <br> Telefono: ${tel} <br> Correo: ${email} <br><br> ${message}`)
                 await mailerSend.email.send(emailParams)
                 messageInfo.sucess += "Mensaje enviado con exito pronto nos pondremos en contacto con usted"
-                location.href = "#mensaje"
             }
     }  
     catch (error) {
