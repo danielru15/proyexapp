@@ -8,15 +8,15 @@ import Section from "../../components/Section.astro";
     <p>En un mundo cada vez más digitalizado, tu presencia en línea es la clave para destacar, conectar y prosperar. En PROYEXAPP, estamos aquí para ayudarte a desbloquear todo el potencial de tu marca con sitios web que no solo impresionan, sino que cautivan a tu audiencia desde el primer clic.</p>
 </div>
 <div class="flex">
-    <div>
+    <div class="counter">
         <h3>+91% </h3>
         <p>Visitas</p>
     </div>
-    <div>
+    <div class="counter">
         <h3>+40%</h3>
         <p>clientes</p>
     </div>
-    <div>
+    <div class="counter">
         <h3>+84%</h3>
         <p>Credibilidad</p>
     </div>
@@ -71,7 +71,31 @@ import Section from "../../components/Section.astro";
     }
     /* Medium devices (tablets, 768px and up) */
     @media (min-width: 768px) {
-        
+        .flex-titulo {
+        display: flex;
+        flex-direction: row;
+    }
+    .flex-titulo h2 {
+        font-size: 2rem;
+    }
+    .flex-titulo p {
+        width: 80vw;
+        font-size: 1.2rem;
+        text-align: left;
+    }
+    .flex {
+        margin-top: 4rem;
+        display: flex;
+        align-items: center;
+        justify-content:space-evenly;
+    }
+    .flex div h3{
+        font-size: 4rem;
+    }
+    .flex div p {
+        text-align: center;
+        font-size: 1.5rem;
+    }
     }
     /* Extra large devices (large desktops, 1200px and up) */
     @media (min-width: 1200px) {
@@ -102,3 +126,62 @@ import Section from "../../components/Section.astro";
     }
 }
 </style>
+
+<script>
+   document.addEventListener('DOMContentLoaded', () => {
+    // Seleccionar todos los elementos h3 dentro de los contenedores con clase counter
+    const counters = document.querySelectorAll('.counter h3');
+
+    /**
+     * Función para animar los contadores.
+     * @param element - El elemento HTML a animar.
+     * @param end - El valor final hasta el cual se debe contar.
+     */
+    const animateCounter = (element: HTMLElement, end: number) => {
+        let start = 0; // El valor inicial del contador.
+        const duration = 4000; // La duración total de la animación en milisegundos.
+        const startTime = performance.now(); // El tiempo inicial de la animación.
+
+        /**
+         * Función que actualiza el contador en cada frame.
+         * @param currentTime - El tiempo actual proporcionado por requestAnimationFrame.
+         */
+        const updateCounter = (currentTime: number) => {
+            const elapsedTime = currentTime - startTime; // El tiempo transcurrido desde el inicio de la animación.
+            const progress = Math.min(elapsedTime / duration, 1); // Progreso de la animación, asegurado de no superar 1.
+            const value = Math.floor(progress * end); // Valor actual del contador basado en el progreso.
+            element.textContent = `+${value}%`; // Actualizar el texto del elemento.
+
+            if (progress < 1) {
+                requestAnimationFrame(updateCounter); // Continuar la animación si no ha terminado.
+            } else {
+                element.textContent = `+${end}%`; // Asegurar que el valor final se establece correctamente.
+            }
+        };
+
+        requestAnimationFrame(updateCounter); // Iniciar la animación.
+    };
+
+    /**
+     * Configuración del Intersection Observer.
+     * Activa la animación cuando los elementos .flex entran en el viewport.
+     */
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const h3Elements = entry.target.querySelectorAll('h3');
+                h3Elements.forEach((h3: Element) => {
+                    const endValue = parseInt((h3 as HTMLElement).textContent!.replace('%', ''));
+                    animateCounter(h3 as HTMLElement, endValue); // Animar el contador hasta el valor final.
+                });
+                observer.unobserve(entry.target); // Dejar de observar el elemento después de la animación.
+            }
+        });
+    }, { threshold: 0.1 }); // Configuración para activar la animación cuando el 10% del elemento es visible.
+
+    observer.observe(document.querySelector('.flex')!); // Iniciar la observación del elemento .flex.
+});
+
+
+
+</script>

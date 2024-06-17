@@ -1,0 +1,268 @@
+---
+interface Props {
+    class:string;
+    titulo: string; //titulo 
+    description?:string, // descripción
+    image: {
+        url:string
+        alt:string
+        title:string
+    }
+}
+
+const { titulo,description,image  } = Astro.props;
+const {url,alt,title} = image
+---
+<section class:list={Astro.props.class}>
+    <div>
+        <h1>{titulo}</h1>
+        <p>{description}</p>
+    </div>
+    <img src={url} alt={alt} title={title}>
+</section>
+
+<style>
+    /*--  ESTILOS GENERALES DEL HERO --- */
+
+    section {
+        display: flex;
+        background-color: var(--color_primario);
+    }
+    section img {
+        filter: drop-shadow(var(--sombra_caja));
+    }
+    h1,p {
+        color: var(--color_cuarto);
+    }
+
+/*--  ESTILOS HERO PAGINA DE INICIO --- */
+
+    .hero-inicio { 
+        flex-direction:column;
+        align-items: flex-end;
+        background-color: var(--color_primario);
+        padding:5rem 0;
+        gap: 2rem;
+    }
+
+    .hero-inicio img {
+        width: 90vw;
+    }
+
+    .hero-inicio div {
+        padding: 2rem;
+    }
+
+    .hero-inicio h1 {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+    }
+
+
+/*--  ESTILOS HERO PAGINA DE SERVICIOS --- */
+
+    .hero-servicios {
+        flex-direction: column;
+        padding-top: 9rem;
+        gap: 2rem;
+    }
+    .hero-servicios img {
+        width: 100vw;
+    }
+    .hero-servicios div {
+        padding: 2rem;
+    }
+    .hero-servicios  div h1{
+        font-size: 2.7rem;
+        margin-bottom: 1rem;
+    }
+    .hero-servicios  div  p {
+        font-size: 1.4rem;    
+    }
+
+/*--  ESTILOS HERO PAGINA DE PROYECTOS --- */
+
+.hero-proyectos {
+        flex-direction: column;
+        padding-top: 7rem;
+        align-items: flex-end;
+    }
+    .hero-proyectos img {
+        width: 90vw;
+    }
+    .hero-proyectos div {
+        padding: 2rem;
+    }
+    .hero-proyectos  div h1{
+        font-size: 2.7rem;
+        margin-bottom: 1rem;
+    }
+
+
+@media (max-width: 280px) {
+    .hero-proyectos  div h1{
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+}
+@media (min-width: 576px) {
+/*--  ESTILOS HERO PAGINA DE INICIO --- */
+
+.hero-inicio img {
+        width: 70vw;
+    }
+/*--  ESTILOS HERO PAGINA DE SERVICIOS --- */
+
+/*--  ESTILOS HERO PAGINA DE PROYECTOS --- */
+}
+
+@media (min-width: 768px) {
+/*--  ESTILOS HERO PAGINA DE INICIO --- */
+
+   .hero-inicio {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0;
+        padding: 7rem 0;
+    }
+    .hero-inicio img {
+        width: 50vw;
+    }
+    .hero-inicio div {
+        padding-left: 2rem;
+    }
+    .hero-inicio h1 {
+        font-size: 2.1rem;
+        margin-bottom: 0.5rem;
+    }
+
+/*--  ESTILOS HERO PAGINA DE SERVICIOS --- */
+
+    .hero-servicios {
+        flex-direction: row-reverse;
+        align-items: center;
+        padding-top: 9rem;
+        gap: 0;
+    }
+    .hero-servicios img {
+        width: 45vw;
+    }
+    .hero-servicios div {
+        padding: 0;
+    
+    }
+    .hero-servicios div h1 {
+        font-size: 2.2rem;
+        margin-bottom: 0.5rem;
+    }
+    .hero-servicios div p {
+        font-size: 1.1rem;
+    }
+/*--  ESTILOS HERO PAGINA DE PROYECTOS --- */
+
+.hero-proyectos {
+        flex-direction: row;
+        align-items: center;
+        padding-top: 9rem;
+        gap: 0;
+    }
+    .hero-proyectos img {
+        width: 50vw;
+    }
+    .hero-proyectos div {
+        padding-left: 3rem;
+    
+    }
+    .hero-proyectos div h1 {
+        font-size: 2.2rem;
+        margin-bottom: 0.5rem;
+    }
+}
+@media (min-width: 900px) { 
+    /*--  ESTILOS HERO PAGINA DE PROYECTOS --- */
+.hero-proyectos  {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0;
+    }
+   .hero-proyectos img {
+        width: 40vw;
+    }
+   .hero-proyectos div {
+        padding:0 3rem;
+    }
+   .hero-proyectos div h1{
+        font-size: 3rem;
+        text-align: center;
+        margin-bottom: 0;
+    }
+}
+
+@media (min-width: 1200px) {
+/*--  ESTILOS HERO PAGINA DE INICIO --- */
+
+    .hero-inicio  {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background-color: var(--color_primario);
+        padding-top: 9rem;
+        gap: 0;
+    }
+    .hero-inicio  img {
+        width: 40vw;
+        filter: drop-shadow(var(--sombra_caja));
+    }
+    .hero-inicio  div {
+      padding-left: 4rem;
+    }
+    .hero-inicio  h1{
+        font-size: 3.2rem;
+        margin-bottom: 0;
+    }
+
+/*--  ESTILOS HERO PAGINA DE SERVICIOS --- */  
+
+   .hero-servicios  {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 9rem;
+        gap: 0;
+    }
+   .hero-servicios img {
+        width: 45vw;
+    }
+   .hero-servicios div {
+        padding: 0;
+    }
+   .hero-servicios div h1{
+        font-size: 3.2rem;
+        margin-bottom: 0;
+    }
+   .hero-servicios div p {
+        font-size: 1.6rem;
+    }
+
+/*--  ESTILOS HERO PAGINA DE PROYECTOS --- */
+.hero-proyectos  {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0;
+    }
+   .hero-proyectos img {
+        width: 45vw;
+    }
+   .hero-proyectos div {
+        padding:0 4rem;
+    }
+   .hero-proyectos div h1{
+        font-size: 3.5rem;
+        text-align: center;
+        margin-bottom: 0;
+    }
+}
+</style>

@@ -64,25 +64,42 @@ import Section from "../../components/Section.astro";
 }
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-    
-}
-@media (min-width: 1200px) {
     h2 {
-        font-size: 2.7rem;
-        color: var(--color_primario);
-    }
-    section {
-        margin: 3rem 0;
+        text-align: center;
     }
     div {
-        display: flex;
         flex-direction: row;
-        margin: 1rem 0;
+        margin: 3rem 0;
         gap: 1rem;
     }
     .row-reverse {
         flex-direction: row-reverse;
     }
+    .row-reverse img {
+        width: 40vw;
+    }
+    article {
+        width: 50vw;
+    }
+
+    div img {
+        width: 50vw;
+    }
+}
+@media (min-width: 1200px) {
+    h2 {
+        font-size: 2.7rem;
+        color: var(--color_primario);
+        text-align: left;
+    }
+    div {
+        margin: 1rem 0;
+    }
+    section {
+        margin: 3rem 0;
+    }
+   
+    
     article {
         width: 50vw;
         display: flex;

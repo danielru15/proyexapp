@@ -5,7 +5,7 @@ import PresenciaEnLinea from "@/section/inicio/PresenciaEnLinea.astro"
 import PorqueProyexapp from "@/section/inicio/PorqueProyexapp.astro"
 import CallAction from "@/components/call_to_action/CallAction.astro"
 import PreguntasFrecuentes from "@/section/inicio/PreguntasFrecuentes.astro"
-import HeroInicio from "@/section/inicio/HeroInicio.astro"
+import Hero from "@/components/Hero.astro"
 
 
 ---
@@ -13,7 +13,11 @@ import HeroInicio from "@/section/inicio/HeroInicio.astro"
 	title="PROYEXAPP" 
 	description='Somos una empresa de desarrollo y diseño de páginas web en Medellín, ofreciendo servicios personalizados y profesionales. Contáctanos hoy para mejorar tu presencia online.'
 >
-	<HeroInicio/>
+	<Hero 	
+		titulo="Transformamos tus conceptos en experiencias digitales." 
+		class="hero-inicio" 
+		image={{url:"/heroinicio.webp",title:"Imagen del hero", alt:"Imagen del hero web"}}
+	/>
 	<ExperienciaInmersiva/>
 	<PresenciaEnLinea/>
 	<PorqueProyexapp/>

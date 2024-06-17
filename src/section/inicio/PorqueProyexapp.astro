@@ -62,15 +62,30 @@ import Section from "../../components/Section.astro";
         gap: 1rem;
     }
 }
+@media (min-width: 577px) { 
+    .flex {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: flex-start;
+    }
+}
+
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-    
+    .flex {
+        display: flex;
+       flex-wrap: nowrap;
+        gap: 1rem;
+        margin-bottom: 4rem;
+    }
 }
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
     .flex {
         display: flex;
-       
+       flex-wrap: nowrap;
         gap: 1rem;
         margin-bottom: 4rem;
     }

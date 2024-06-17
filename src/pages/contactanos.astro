@@ -1,7 +1,8 @@
 ---
 import Informacion from "@/section/contacto/Informacion.astro"
 import Layout from "../layouts/Layout.astro"
-import Hero from "@/section/contacto/Hero.astro"
+import Hero from "@/components/Hero.astro"
+
 
 
 ---
@@ -9,7 +10,11 @@ import Hero from "@/section/contacto/Hero.astro"
 <Layout title="PROYEXAPP | Contactanos" 
         description="Ponte en contacto con nosotros para saber más sobre nuestros servicios de desarrollo y diseño web en Medellín. Estamos aquí para ayudarte."
 >
-    <Hero/>
+    <Hero 	
+    titulo="Contactanos" 
+    class="hero-inicio" 
+    image={{url:"/heroinicio.webp",title:"Imagen del hero", alt:"Imagen del hero web"}}
+    />
     <Informacion/>
 
 </Layout>
