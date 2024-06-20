@@ -21,7 +21,7 @@ const { title } = Astro.props;
     height: 100vh;
     position: relative;
     overflow: hidden;
-    background-image: linear-gradient(to left, rgba(14, 45, 95, 0.86), rgba(14, 45, 95, 0.735)), url(/background-image.webp);
+    background-image: linear-gradient(to left, rgba(14, 45, 95, 0.86), rgba(14, 45, 95, 0.735)), url(./background-image.webp);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -79,3 +79,17 @@ const { title } = Astro.props;
 </style>
 
 
+<script>
+
+    window.addEventListener('scroll', function() {
+    const parallax: HTMLElement | null = document.getElementById('parallax');
+  
+    let scrollPosition: number = window.scrollY;
+     // Parallax effect for particles
+    
+    if (parallax) {
+        parallax.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
+    }
+});
+
+</script>
