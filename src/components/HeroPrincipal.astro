@@ -1,4 +1,5 @@
 ---
+
 interface Props {
 	title: string; //titulo de la pagina
 
@@ -6,7 +7,7 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<section id="parallax">
+<section  id="parallax" >
   <div id="particles-js"></div>
   <div>
     <h1>{title}</h1>
@@ -21,7 +22,7 @@ const { title } = Astro.props;
     height: 100vh;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(to left, rgba(14, 45, 95, 0.86), rgba(14, 45, 95, 0.735)), url(./background-image.webp);
+    background: linear-gradient(to left, rgba(14, 45, 95, 0.86), rgba(14, 45, 95, 0.735)), url("./background-image.webp");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
