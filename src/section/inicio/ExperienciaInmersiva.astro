@@ -2,11 +2,11 @@
 import Section from "../../components/Section.astro";
 ---
 
-<Section>
+<Section >
     <h2>MÁS QUE SOLO UN SITIO WEB: <br> UNA EXPERIENCIA INMERSIVA</h2>
-   <div>
-      <p class="left" >En <strong>PROYEXAPP</strong>, entendemos que tu sitio web es más que solo una página en línea; es tu carta de presentación digital, tu puente hacia nuevas oportunidades. </p>
-      <p class="right">Es por eso que nos esforzamos por crear experiencias web que no solo se vean increíbles, sino que también ofrezcan una navegación fluida, una funcionalidad impecable y un contenido cautivador que mantenga a tus visitantes comprometidos y regresando por más.</p>
+   <div class="experiencia-inmersiva">
+      <p class="left" data-animation="fade-left" >En <strong>PROYEXAPP</strong>, entendemos que tu sitio web es más que solo una página en línea; es tu carta de presentación digital, tu puente hacia nuevas oportunidades. </p>
+      <p class="right"data-animation="fade-right">Es por eso que nos esforzamos por crear experiencias web que no solo se vean increíbles, sino que también ofrezcan una navegación fluida, una funcionalidad impecable y un contenido cautivador que mantenga a tus visitantes comprometidos y regresando por más.</p>
    </div>
 </Section>
 
@@ -68,3 +68,16 @@ import Section from "../../components/Section.astro";
    }
 }
 </style>
+
+<script>
+import { handleScroll } from "@/utils/handleScroll";
+
+const options = {
+        root:null, // El viewport será el root
+        rootMargin:'0px', // Sin margen adicional
+        threshold:0.95 // Observar cuando el 100% del elemento esté visible recibe valor entre 0 a 1
+    }
+
+   handleScroll('.experiencia-inmersiva', '.left' ,'unset',options)
+   handleScroll('.experiencia-inmersiva', '.right' , 'unset', options)
+</script>

@@ -4,14 +4,14 @@ import Section from "../../components/Section.astro";
 
 <Section>
     <h2>¿ CÓMO TRABAJAMOS ?</h2>
-    <section>
-        <div>
+    <section >
+        <div class="paso1">
             <article>
                 <h3>PASO 1</h3>
                 <p>Nos reunimos con el cliente y escuchamos sus requerimientos y necesidades, le asesoramos y decidimos juntos el tipo de página a desarrollar, definimos el valor del trabajo.</p>
             </article>
           
-            <img src="/paso1.webp" alt="Paso 1 reunión con el cliente" title="Paso 1 reunión con el cliente">
+            <img src="/paso1.webp"  class="imagen-paso1"  alt="Paso 1 reunión con el cliente" title="Paso 1 reunión con el cliente" data-animation="fade-right">
         </div>
         <div class="row-reverse">
             <article>
@@ -19,15 +19,15 @@ import Section from "../../components/Section.astro";
                 <p>Procedemos a diseñar el WIREFRAME y MOCKUP de cómo se verá el sitio web, basándonos en el UI/UX para garantizar páginas modernas, llamativas y que cumplan con los requerimientos del cliente.</p>
             </article>
           
-            <img src="/paso2.webp" alt="Paso 2 Diseño del wireframe y mockup" title="Paso 2 Diseño del wireframe y mockup">
+            <img src="/paso2.webp" class="imagen-paso2"  data-animation="fade-left"  alt="Paso 2 Diseño del wireframe y mockup" title="Paso 2 Diseño del wireframe y mockup">
         </div>
-        <div>
+        <div class="paso3">
             <article>
                 <h3>PASO 3</h3>
                 <p>Después que el diseño sea aprobado por el cliente se pasa a la etapa de desarrollo donde nos encargaremos de hacer tu pagina responsive y que este en internet en los tiempos pactados.</p>
             </article>
           
-            <img src="/paso3.webp" alt="Paso 3 del diseño al codigo y publicación de la web" title="Paso 3 del diseño al codigo y publicación de la web">
+            <img src="/paso3.webp" class="imagen-paso3" data-animation="fade-right"  alt="Paso 3 del diseño al codigo y publicación de la web" title="Paso 3 del diseño al codigo y publicación de la web">
         </div>
     </section>
 </Section>
@@ -123,3 +123,17 @@ import Section from "../../components/Section.astro";
 }
 
 </style>
+
+<script>
+    import { handleScroll } from "@/utils/handleScroll";
+
+    const options = {
+        root:null, // El viewport será el root
+        rootMargin:'0px', // Sin margen adicional
+        threshold:1 // Observar cuando el 100% del elemento esté visible recibe valor entre 0 a 1
+    }
+    handleScroll('.paso1', '.imagen-paso1' ,'unset',options)
+    handleScroll('.row-reverse', '.imagen-paso2' ,'unset',options)
+    handleScroll('.paso3', '.imagen-paso3' ,'unset',options)
+
+</script>

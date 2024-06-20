@@ -30,6 +30,7 @@ const { title,description } = Astro.props;
 	</body>
 </html>
 <style is:global>
+ 
 *, 
 *:after,
 *:before {
@@ -39,6 +40,7 @@ const { title,description } = Astro.props;
     text-decoration: none;
     list-style: none;
     text-decoration: none;
+    scroll-behavior: smooth;
 }
 main {
   background-color: var(--color_terciario);
@@ -123,5 +125,44 @@ main {
         background-color:var(--color_primario);
         color: var(--color_terciario);
     }
+/* ---- ANIMACIONES -------*/
+  [data-animation="fade-right"] {
+    opacity: 0;
+    transform: translate(100%);
+    transition: .6s ease-in .3s;
 
+    --opacity:1
+    transform:translate(0)
+  }
+  [data-animation="fade-left"] {
+    opacity: 0;
+    transform: translate(-100%);
+    transition: .6s ease-in .3s;
+
+    --opacity:1
+    transform:translate(0)
+  }
+
+  [data-animation="scale-in"] {
+    opacity: 1;
+    transform: scale(0);
+    transition: .6s ease-in .3s;
+
+    --opacity:0
+    transform:scale(1)
+  }
+
+  [data-animation="up"] {
+    opacity: 1;
+    transform: translateY(100%);
+    transition: .6s ease-in .3s;
+
+    --opacity:0
+    transform:translateY(0)
+  }
+
+  .unset {
+    opacity: var(--opacity);
+    transform: var(--transform);
+  }
 </style>
