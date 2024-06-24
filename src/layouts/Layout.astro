@@ -20,7 +20,6 @@ const { title,description } = Astro.props;
       title={title}
       description={description}
     />
-
 	</head>
 	<body>
     <Navbar/>
@@ -119,8 +118,7 @@ main {
         color: var(--color_primario);
     }
     .btn_primary:hover {
-      transition: 0.7s;
-      outline:2px dashed var(--color_primario) ;
+      transform: translateY(-3px);
     }
  .btn_second {
         background-color:var(--color_primario);

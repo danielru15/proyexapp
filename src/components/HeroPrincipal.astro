@@ -5,12 +5,15 @@ interface Props {
 
 }
 const { title } = Astro.props;
+
+
 ---
 
 <section id="parallax">
   <div id="particles-js"></div>
   <div>
     <h1>{title}</h1>
+    <a href="https://wa.me/573217513801?text=Hola,%20me%20gustaría%20cotizar%20una%20página%20web" target="_blank" class="cta-button">¡Diseña tu sitio web!</a>
   </div>
 </section>
 
@@ -54,8 +57,10 @@ section div {
   position: absolute;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   text-align: center;
+  gap: 1rem;
   padding: 0 3rem;
 }
 
@@ -64,7 +69,23 @@ section div h1 {
   color: var(--color_cuarto);
   text-shadow: var(--text-shadow);
 }
+.cta-button {
+  margin-top: 20px;
+  padding: 15px 30px;
+  font-size: 1.5rem;
+  color:var(--color_primario);
+  background-color: var(--color_secundario);
+  border: none;
+  border-radius:var(--border-radius);
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
 
+.cta-button:hover {
+  transform: translateY(-3px);
+}
 @media (max-width: 280px) {
   section div h1 {
     font-size: 2rem;
@@ -85,18 +106,3 @@ section div h1 {
 </style>
 
 
-<script>
-
-   
-window.addEventListener('scroll', function() {
-  const parallax: HTMLElement | null = document.getElementById('parallax');
-  const scrollPosition: number = window.scrollY;
-  if (parallax) {
-    const parallaxBackground: Element | null = parallax.querySelector('section::before');
-    if (parallaxBackground) {
-      (parallaxBackground as HTMLElement).style.transform = `translateY(${scrollPosition * 0.5}px)`;
-    }
-  }
-});
-
-</script>
