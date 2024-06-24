@@ -1,4 +1,85 @@
 ---
+import Particles from "astro-particles";
+import type { ISourceOptions } from "tsparticles-engine"
+import type { RecursivePartial } from "tsparticles-engine";
+
+
+// Define your style object
+const canvasStyles: RecursivePartial<CSSStyleDeclaration> = {
+  position: "absolute",
+  top: "0",
+  width: "100%",
+  height: "100dhv",
+};
+
+const options: ISourceOptions = {
+  
+   "fps_limit":60,
+   "interactivity":{
+      "detectsOn":"canvas",
+      "events":{
+         "onClick":{
+            "enable":true,
+            "mode":"push"
+         },
+         "onHover":{
+            "enable":true,
+            "mode":"repulse"
+         },
+         "resize":false
+      },
+      "modes":{
+         "push":{
+            "particles_nb":4
+         },
+         "repulse":{
+            "distance":100,
+            "duration":0.4
+         }
+      }
+   },
+   "particles":{
+      "color":{
+         "value":"#ffffff"
+      },
+      "links":{
+         "color":"#ffffff",
+         "distance":150,
+         "enable":true,
+         "opacity":0.4,
+         "width":1
+      },
+      "move":{
+         "bounce":false,
+         "direction":"none",
+         "enable":true,
+         "outMode":"out",
+         "random":false,
+         "speed":2,
+         "straight":false
+      },
+      "number":{
+         "density":{
+            "enable":true,
+            "area":800
+         },
+         "value":60
+      },
+      "opacity":{
+         "value":0.5
+      },
+      "shape":{
+         "type":"circle"
+      },
+      "size":{
+         "random":true,
+         "value":5
+      }
+   },
+   "detectRetina":true,
+   "style": canvasStyles,
+}
+
 
 interface Props {
 	title: string; //titulo de la pagina
@@ -8,19 +89,37 @@ const { title } = Astro.props;
 
 
 ---
+<script>
+  import { type Container, type Engine, tsParticles } from "tsparticles-engine";
+  import { loadFull } from "tsparticles";
 
+  // the function name is the parameter passed to the init attribute
+  // required
+  // add the function to window is mandatory, it will be searched there
+  window.particlesInit = async function (engine: Engine) {
+      await loadFull(engine);
+  }
+  
+  // the function name is the parameter passed to the loaded attribute
+  // optional
+  // add the function to window is mandatory, it will be searched there
+  window.particlesLoaded = function (container: Container) {
+      console.log("particlesLoaded callback");
+  }
+</script>
 <section id="parallax">
-  <div id="particles-js"></div>
+  
   <div>
     <h1>{title}</h1>
     <a href="https://wa.me/573217513801?text=Hola,%20me%20gustaría%20cotizar%20una%20página%20web" target="_blank" class="cta-button">¡Diseña tu sitio web!</a>
   </div>
+  <Particles id="tsparticles"  options={options} init="particlesInit"/>
 </section>
 
 
 <style>
   section {
-  height: 100vh;
+  height: 100dvh;
   position: relative;
   overflow: hidden;
   border-bottom-right-radius: 6rem;
@@ -42,14 +141,6 @@ section::before {
   transition: transform 0.3s ease-out;
 }
 
-#particles-js {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 0;
-}
 
 section div {
   width: 100%;
@@ -63,7 +154,14 @@ section div {
   gap: 1rem;
   padding: 0 3rem;
 }
-
+#tsparticles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+}
 section div h1 {
   font-size: 2.3rem;
   color: var(--color_cuarto);
