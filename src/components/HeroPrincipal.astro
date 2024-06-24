@@ -7,50 +7,39 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<section  id="parallax" >
+<section id="parallax">
   <div id="particles-js"></div>
   <div>
     <h1>{title}</h1>
   </div>
-
 </section>
 
 
 <style>
-  
   section {
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(to left, rgba(14, 45, 95, 0.86), rgba(14, 45, 95, 0.735)), url("https://res.cloudinary.com/drefycqf9/image/upload/v1718861697/uk7lsvpv6bzcvin1juwn.webp");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    border-bottom-right-radius: 6rem;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 100px), calc(100% - 100px) 100%, 0 100%);
-    transition: background 0.5s ease;
-  }
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  border-bottom-right-radius: 6rem;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 100px), calc(100% - 100px) 100%, 0 100%);
+}
 
-  section div {
-    width: 100%;
-    height: 100%;
-    top: 0;
-    right: 0;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 3rem;
-  }
+section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to left, rgba(14, 45, 95, 0.86), rgba(14, 45, 95, 0.735)), url(/background-image.webp);
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  transform: translateY(0);
+  transition: transform 0.3s ease-out;
+}
 
-  section div h1 {
-    font-size: 2.3rem;
-    color:var(--color_cuarto);
-    text-shadow: var(--text-shadow);
-  }
-
-  #particles-js {
+#particles-js {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -59,24 +48,55 @@ const { title } = Astro.props;
   z-index: 0;
 }
 
-  @media (max-width: 280px) {
-    section div h1 {
+section div {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 3rem;
+}
+
+section div h1 {
+  font-size: 2.3rem;
+  color: var(--color_cuarto);
+  text-shadow: var(--text-shadow);
+}
+
+@media (max-width: 280px) {
+  section div h1 {
     font-size: 2rem;
-    }
   }
+}
 
-  @media (min-width: 768px) {
-    section div h1 {
+@media (min-width: 768px) {
+  section div h1 {
     font-size: 2.8rem;
-
   }
-  }
+}
 
-  @media (min-width: 1200px) {
-    section div h1 {
+@media (min-width: 1200px) {
+  section div h1 {
     font-size: 3.3rem;
-    }
   }
+}
 </style>
 
 
+<script>
+
+   
+window.addEventListener('scroll', function() {
+  const parallax: HTMLElement | null = document.getElementById('parallax');
+  const scrollPosition: number = window.scrollY;
+  if (parallax) {
+    const parallaxBackground: Element | null = parallax.querySelector('section::before');
+    if (parallaxBackground) {
+      (parallaxBackground as HTMLElement).style.transform = `translateY(${scrollPosition * 0.5}px)`;
+    }
+  }
+});
+
+</script>
