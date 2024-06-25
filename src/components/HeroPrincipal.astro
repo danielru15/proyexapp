@@ -1,93 +1,11 @@
 ---
+import { options } from "@/config/particles/options";
 import Particles from "astro-particles";
-import type { ISourceOptions } from "tsparticles-engine"
-import type { RecursivePartial } from "tsparticles-engine";
-
-
-// Define your style object
-const canvasStyles: RecursivePartial<CSSStyleDeclaration> = {
-  position: "absolute",
-  top: "0",
-  width: "100%",
-  height: "100dhv",
-};
-
-const options: ISourceOptions = {
-  
-   "fps_limit":60,
-   "interactivity":{
-      "detectsOn":"canvas",
-      "events":{
-         "onClick":{
-            "enable":true,
-            "mode":"push"
-         },
-         "onHover":{
-            "enable":true,
-            "mode":"repulse"
-         },
-         "resize":false
-      },
-      "modes":{
-         "push":{
-            "particles_nb":4
-         },
-         "repulse":{
-            "distance":100,
-            "duration":0.4
-         }
-      }
-   },
-   "particles":{
-      "color":{
-         "value":"#ffffff"
-      },
-      "links":{
-         "color":"#ffffff",
-         "distance":150,
-         "enable":true,
-         "opacity":0.4,
-         "width":1
-      },
-      "move":{
-         "bounce":false,
-         "direction":"none",
-         "enable":true,
-         "outMode":"out",
-         "random":false,
-         "speed":2,
-         "straight":false
-      },
-      "number":{
-         "density":{
-            "enable":true,
-            "area":800
-         },
-         "value":60
-      },
-      "opacity":{
-         "value":0.5
-      },
-      "shape":{
-         "type":"circle"
-      },
-      "size":{
-         "random":true,
-         "value":5
-      }
-   },
-   "detectRetina":true,
-   "style": canvasStyles,
-}
-
-
 interface Props {
 	title: string; //titulo de la pagina
 
 }
 const { title } = Astro.props;
-
-
 ---
 <script>
   import { type Container, type Engine, tsParticles } from "tsparticles-engine";
@@ -108,7 +26,6 @@ const { title } = Astro.props;
   }
 </script>
 <section id="parallax">
-  
   <div>
     <h1>{title}</h1>
     <a href="https://wa.me/573217513801?text=Hola,%20me%20gustaría%20cotizar%20una%20página%20web" target="_blank" class="cta-button">¡Diseña tu sitio web!</a>
@@ -118,6 +35,12 @@ const { title } = Astro.props;
 
 
 <style>
+  #tsparticle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
   section {
   height: 100dvh;
   position: relative;
@@ -145,7 +68,6 @@ section::before {
 section div {
   width: 100%;
   height: 100%;
-  position: absolute;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -153,14 +75,7 @@ section div {
   text-align: center;
   gap: 1rem;
   padding: 0 3rem;
-}
-#tsparticles {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50% 50%;
+  z-index: 10;
 }
 section div h1 {
   font-size: 2.3rem;
@@ -179,11 +94,15 @@ section div h1 {
   text-transform: uppercase;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   transition: background-color 0.3s ease, transform 0.3s ease;
+  z-index: 20;
 }
 
 .cta-button:hover {
   transform: translateY(-3px);
 }
+
+
+
 @media (max-width: 280px) {
   section div h1 {
     font-size: 2rem;
