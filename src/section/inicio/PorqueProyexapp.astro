@@ -6,10 +6,10 @@ import Section from "../../components/Section.astro";
 
 <Section class="color_secundario">
 <div class="text" >
-    <h2>¿ PORQUE PROYEXAPP ?</h2>
+    <h2>¿ PORQUE elegir PROYEXAPP ?</h2>
     <p>No solo construimos sitios web; construimos relaciones duraderas. Nos enorgullece ofrecer un servicio personalizado, transparente y orientado a resultados que se adapta a tus necesidades únicas.</p>
 </div>
-    <div class="flex" data-animation="scale-in" >
+    <div class="flex" >
     <Card_Icon 
         iconName="IconChat"
         subtitle="Enfocados en la atención al cliente"
@@ -101,16 +101,3 @@ import Section from "../../components/Section.astro";
     }
 }
 </style>
-
-<script>
-    import { handleScroll } from "@/utils/handleScroll";
-
-    const options = {
-        root:null, // El viewport será el root
-        rootMargin:'0px', // Sin margen adicional
-        threshold:0.70 // Observar cuando el 100% del elemento esté visible recibe valor entre 0 a 1
-    }
-
-    handleScroll('.color_secundario', '.flex' ,'unset',options)
-
-</script>

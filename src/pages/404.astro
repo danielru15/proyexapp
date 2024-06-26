@@ -1,15 +1,72 @@
 ---
-import Hero from "@/components/Hero.astro";
 import Section from "@/components/Section.astro";
-
+import Layout from "@/layouts/Layout.astro";
 
 ---
-<Hero 	
-		titulo="Transformamos tus conceptos en experiencias digitales." 
-		class="hero-inicio" 
-		image={{url:"/heroinicio.webp",title:"Imagen del hero", alt:"Imagen del hero web"}}
-	/>
+<Layout title="PROYEXAPP | Página no encontrada" 
+        description="Página no encontrada">
+  <Section class="e404">
+    <div class="container">
+      <div class="text">
+        <h1>ERROR 404</h1>
+        <h2>¡ PÁGINA NO ENCONTRADA !</h2>
+        <p>¡Hola! Lo sentimos, pero no pudimos encontrar lo que buscabas. Verifica que la dirección URL sea correcta.</p>
+        <a href="/" class="button">Volver a inicio</a>
+      </div>
+      <img src="/logo-completo.webp" alt="logo completo" title="logo completo">
+    </div>
+    
+  </Section>
+  
+</Layout>
 
-<Section>
-    <h1>404</h1>
-</Section>
+<style>
+ .container {
+      text-align: center;
+      display: flex;
+      align-items: center;
+      flex-direction: row-reverse;
+      justify-content: center;
+    }
+    .button {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      background-color: var(--color_terciario);
+      color:var(--color_primario);
+      font-size: 1.2rem;
+      text-decoration: none;
+      border-radius: var(--border-radius);
+      transition: background-color 0.3s ease;
+    }
+    h1 {
+      font-size: 3.4rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    img {
+      width: 100%;
+      max-width: 300px;
+    }
+
+    @media (max-width: 767px) {
+      .container {
+      text-align: center;
+      display: flex;
+      align-items: center;
+      flex-direction: column-reverse;
+      justify-content: center;
+    }
+}
+/* 
+</style>
+

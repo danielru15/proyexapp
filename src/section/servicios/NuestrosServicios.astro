@@ -3,20 +3,178 @@ import Section from "../../components/Section.astro";
 
 
 ---
-<Section class="color_secundario">
-    
+<Section class="color_secundario services-timeline">
+    <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-icon"></div>
+          <div class="timeline-content">
+            <h2>landing page</h2>
+            <p>Página atractiva para capturar leads y promover productos o servicios específicos.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-icon"></div>
+          <div class="timeline-content">
+            <h2>Blogs</h2>
+            <p>Plataforma para compartir contenido relevante y aumentar la visibilidad en motores de búsqueda.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-icon"></div>
+          <div class="timeline-content">
+            <h2>Ecommerce</h2>
+            <p>Tienda en línea para vender productos y gestionar transacciones de manera eficiente.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-icon"></div>
+            <div class="timeline-content">
+              <h2>Web corporativa</h2>
+              <p>Sitio web profesional que refleja la identidad y valores de tu empresa.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-icon"></div>
+            <div class="timeline-content">
+              <h2>Aplicaciones web</h2>
+              <p>Soluciones interactivas y personalizadas adaptadas a tus necesidades.</p>
+            </div>
+          </div>
+          
+        <!-- Añade más elementos de la línea de tiempo según sea necesario -->
+      </div>
     
 </Section>
 
 <style>
-    @media (max-width: 280px) {
-  
+
+.timeline {
+  position: relative;
+  max-width: 90vw;
+  margin: 0 auto;
 }
-@media (min-width: 576px) {
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  width: 0.1875rem; /* 3px converted to rem */
+  background-color: var(--color_primario);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-    
+
+.timeline-item {
+  padding: 1rem 2rem;
+  position: relative;
+  width: 50%;
+  box-sizing: border-box;
 }
-@media (min-width: 1200px) {}
+
+.timeline-item:nth-child(odd) {
+  left: 0;
+}
+
+.timeline-item:nth-child(even) {
+  left: 50%;
+}
+
+.timeline-item::before {
+  content: ' ';
+  position: absolute;
+  top: 1rem;
+  width: 1.25rem; /* 20px converted to rem */
+  height: 1.25rem; /* 20px converted to rem */
+  right: -0.625rem; /* 10px converted to rem */
+  background-color: var(--color_terciario);
+  border: 0.1875rem solid var(--color_primario); /* 3px converted to rem */
+  border-radius: 50%;
+  z-index: 1;
+  transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+.timeline-item:nth-child(even)::before {
+  left: -0.625rem; /* 10px converted to rem */
+}
+
+.timeline-content {
+  padding: 1rem;
+  background-color: var(--color_terciario);
+  position: relative;
+  border-radius: 0.5rem; /* 8px converted to rem */
+  box-shadow: var(--sombra_caja_2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.timeline-content h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: var(--color_primario);
+}
+
+.timeline-content p {
+  margin: 0.5rem 0 0;
+  color: black;
+  transition: color 0.3s ease-in-out;
+}
+
+@media (max-width: 700px) { /* 768px  */
+  .timeline::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .timeline-item::before {
+    top: -0.625rem; /* 10px converted to rem */
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto;
+    margin-left: 0;
+  }
+
+  .timeline-item:nth-child(even) {
+    left: 0;
+  }
+
+  .timeline-item:nth-child(even)::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hover Effects */
+.timeline-item:hover .timeline-content {
+  transform: scale(1.05);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); /* 8px and 16px converted to rem */
+}
+
+.timeline-item:hover::before {
+  background-color: var(--color_primario);
+  border-color: var(--color_secundario);
+}
+
+
 </style>
