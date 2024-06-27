@@ -4,6 +4,7 @@
     rootMargin:string
  }
 
+ // FUNCION RECIBE 4 PARAMETROS CLASE DEL ELEMENTO, EL ELEMENTO DE LA ANIMACION, OPCIONES PARA MANEJAR EL VIEWPORT 
  export const handleScroll = (className:string, element:string , efect:string, options:option):void =>  {
 
      const {root,rootMargin, threshold} = options

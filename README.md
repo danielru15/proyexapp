@@ -13,7 +13,6 @@ En ProyexApp, creamos sitios web personalizados y estrategias de marketing digit
   - **Diseño Web Personalizado.** 
   - **Desarrollo Web Avanzado:** 
   - **Optimización para Dispositivos Móviles** 
-- **Nosotros** Incluye misión, enfoque
 - **Contactanos** formulario de Contacto
 ## Para empezar
  
