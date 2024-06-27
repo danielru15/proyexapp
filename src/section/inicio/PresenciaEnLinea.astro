@@ -143,7 +143,7 @@ const observerOptions = {
     threshold: 1.0
 };
 
-const observerCallback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+const observerCallback = (entries: IntersectionObserverEntry[]) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             elements.forEach((element) => {

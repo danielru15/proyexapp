@@ -14,7 +14,7 @@ const Icon = ICONS[iconName]
 ---
 <article class="card">
     <div class="card_icon" >
-         <Icon/> 
+         <Icon class="icon-hover"/> 
     </div>
     <div class="card_content">
         <h3>{subtitle}</h3>
@@ -67,6 +67,9 @@ const Icon = ICONS[iconName]
   .card:hover .card_content {
       color: var(--color_terciario);
   } 
+  .card:hover .icon-hover {
+      fill: var(--color_primario);
+  } 
 .salto_linea {
     white-space: pre;
 }
@@ -92,19 +95,7 @@ const Icon = ICONS[iconName]
         width: 45vw;
         padding: 1rem;
     }
-    .card:hover {
-    
-    transform: translateY(-25px) scale(1.025) translateZ(0);
-    
-  }
-  .card:active {
-    transform: scale(1) translateZ(0);
-    box-shadow: 0 15px 24px rgba(0,0,0,0.11),
-      0 15px 24px;
-      background-color: var(--color_primario);
-  }
-  
-  
+     
 }
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
