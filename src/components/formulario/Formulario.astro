@@ -17,7 +17,7 @@ if (Astro.request.method === 'POST') {
         const email = data.get('email');
         const tel = data.get('tel');
         const message = data.get('message');
-        const mailerSend = new MailerSend({ apiKey:'mlsn.407bb956c5b7afd1114b2e38601aaf746d60a84b82fa704be699d1a7686f56df'})
+        const mailerSend = new MailerSend({ apiKey:import.meta.env.MAILERSEND_API_KEY})
         const sentFrom = new Sender("MS_8gKf7k@trial-vywj2lp7o7kl7oqz.mlsender.net", `${name}`)
         const recipients = [ new Recipient("proyexapp@gmail.com", 'PROYEXAPP')];
     

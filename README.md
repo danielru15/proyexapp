@@ -3,16 +3,13 @@
 
 En ProyexApp, creamos sitios web personalizados y estrategias de marketing digital para resaltar tu presencia en línea. Desde diseños elegantes hasta desarrollo web, ¡destaca con nosotros!
 ##
-![App Screenshot](https://firebasestorage.googleapis.com/v0/b/fir-nextjs-906be.appspot.com/o/DESKTOP_README.png?alt=media&token=f9f5f481-cf8a-4267-b1f8-790a731dde62)
+![App Screenshot](https://firebasestorage.googleapis.com/v0/b/fir-nextjs-906be.appspot.com/o/801shots_so.png?alt=media&token=b24d72e7-3d01-4638-b2e1-6b16468f52ff)
 
 
 ## Estructura del Sitio
 
 - **Inicio:** Página principal del sitio web.
 - **Servicios:** Se muestran los servicios
-  - **Diseño Web Personalizado.** 
-  - **Desarrollo Web Avanzado:** 
-  - **Optimización para Dispositivos Móviles** 
 - **Contactanos** formulario de Contacto
 ## Para empezar
  
